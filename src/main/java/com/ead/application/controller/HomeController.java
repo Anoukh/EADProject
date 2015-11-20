@@ -11,7 +11,7 @@ public class HomeController{
     public String printWelcome(ModelMap model) {
 
         model.addAttribute("message", " Anoukh is King");
-        return "inventory/inventory-home";
+        return "index"; //TODO Create Home Page
 
     }
 

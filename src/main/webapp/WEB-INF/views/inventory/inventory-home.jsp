@@ -1,5 +1,6 @@
-<!DOCTYPE html>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -41,8 +42,9 @@
                                 <label for="listOfEngines">Select Engine</label>
                                 <select class="form-control" name="ListOfEngines" id="listOfEngines">
                                     <option disabled selected>--Select One-- </option>
-                                    <option>Engine Type 1</option>
-                                    <option>Engine Type 2</option>
+                                    <c:forEach items="${engines}" var="engine">
+                                        <option>${engine.engine_name}</option>
+                                    </c:forEach>
                                 </select>
                             </div>
                             <div class="form-group col-lg-4">

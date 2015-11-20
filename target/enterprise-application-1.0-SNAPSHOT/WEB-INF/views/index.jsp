@@ -11,6 +11,8 @@
     <title>Welcome Page</title>
 </head>
 <body>
-  Hello World ${message}
+  <h2>Hello World!</h2>
+
+  <h3>Click Here for <a href="/inventory">Inventory</a> </h3>
 </body>
 </html>
