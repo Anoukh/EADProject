@@ -4,12 +4,6 @@
 
 $(document).ready(function(){
 
-    //$("#wip").click(function(){
-    //    $("#wipdiv").css("display", "block");
-    //    $("#finisheddiv").css("display", "none");
-    //    $("#addnewdiv").css("display", "none");
-    //});
-
     $("#wip").click(function(){
         $("#wipdiv").show(500);
         $("#finisheddiv").hide(500);
