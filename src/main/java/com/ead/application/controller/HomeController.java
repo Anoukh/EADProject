@@ -10,7 +10,7 @@ public class HomeController{
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String printWelcome(ModelMap model) {
 
-        model.addAttribute("message", " Anoukh is King");
+        model.addAttribute("message", " Hello World");
         return "index"; //TODO Create Home Page
 
     }
