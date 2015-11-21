@@ -16,10 +16,10 @@ public class FinanceController {
     FinanceTransactionService financeTransactionService;
 
     @RequestMapping("/finance")
-    public String listEngine(Model model){
+    public String listTransaction(Model model){
 
 //        logger.debug("Entered Controller");
-        model.addAttribute("engines", financeTransactionService.getFinancialTransactions());
+        model.addAttribute("transactions", financeTransactionService.getFinancialTransactions());
 
         return "finance/financeHome";
     }

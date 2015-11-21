@@ -9,7 +9,7 @@ public class FinanceTransaction {
     private int requestNo;
     private String department;
     private String description;
-    private int amount;
+    private String amount;
 
 /*      Getters and Setters       */
 
@@ -45,11 +45,11 @@ public class FinanceTransaction {
         this.description = description;
     }
 
-    public int getAmount() {
+    public String getAmount() {
         return amount;
     }
 
-    public void setAmount(int amount) {
+    public void setAmount(String amount) {
         this.amount = amount;
     }
 /*  Constructors    */
@@ -58,7 +58,7 @@ public class FinanceTransaction {
         super();
     }
 
-    public FinanceTransaction(String date, int requestNo, String department, int amount, String description) {
+    public FinanceTransaction(String date, int requestNo, String department, String amount, String description) {
         this.date = date;
         this.requestNo = requestNo;
         this.department = department;

@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  */
 
 @Controller
-public class SalesController {
+public class MaintenanceController {
 
 //    private static final Logger logger = Logger.getLogger(InventoryController.class);
 

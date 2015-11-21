@@ -28,7 +28,7 @@ public class FinanceDAOImpl implements FinanceDAO {
 
         List<FinanceTransaction> financeTransactions = null;
 
-        String sql = "SELECT * FROM tbl_engine";
+        String sql = "SELECT * FROM inflow";
 
         JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
 
@@ -38,11 +38,11 @@ public class FinanceDAOImpl implements FinanceDAO {
 //                logger.debug("Entered Query");
                 FinanceTransaction financeTransaction = new FinanceTransaction();
 
-                financeTransaction.setAmount(resultSet.getInt());
-                financeTransaction.setDate(resultSet.getString(""));
-                financeTransaction.setDepartment(resultSet.getString(""));
-                financeTransaction.setDescription(resultSet.getString(""));
-                financeTransaction.setRequestNo(resultSet.getInt());
+                financeTransaction.setAmount(resultSet.getString("Amount"));
+                financeTransaction.setDate(resultSet.getString("Date"));
+                financeTransaction.setDepartment(resultSet.getString("Department"));
+                financeTransaction.setDescription(resultSet.getString("Description"));
+                financeTransaction.setRequestNo(resultSet.getInt("Request_id"));
 //                logger.debug("End of Query");
                 return financeTransaction;
             }
