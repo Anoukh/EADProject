@@ -1,4 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -104,9 +106,19 @@
 							</tr>
 							</thead>
 							<tbody class="">
-							<tr>
-								<td><a href="#" onClick="pop('popDiv')">Click</a></td>
-							</tr>
+
+								<c:forEach items="${transactions}" var="transaction">
+								<tr>
+									<td>${transaction.date}</td>
+									<td>${transaction.requestNo}</td>
+									<td>${transaction.department}</td>
+									<td>${transaction.description}</td>
+									<td>${transaction.amount}</td>
+
+								</tr>
+								</c:forEach>
+
+
 							</tbody>
 						</table>
 

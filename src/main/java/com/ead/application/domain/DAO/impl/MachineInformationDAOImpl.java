@@ -25,7 +25,7 @@ public class MachineInformationDAOImpl implements MachineInformationDAO {
 
         List<MachineInformation> machineInformations = null;
 
-        String sql = "SELECT * FROM machineinformation";
+        String sql = "SELECT * FROM machinecondition";
 
         JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
 

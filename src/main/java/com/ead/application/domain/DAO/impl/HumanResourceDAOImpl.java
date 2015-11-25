@@ -3,6 +3,7 @@ package com.ead.application.domain.DAO.impl;
 import com.ead.application.domain.DAO.FinanceDAO;
 import com.ead.application.domain.DAO.HumanResourceDAO;
 import com.ead.application.domain.Employee;
+import com.ead.application.domain.Engine;
 import com.ead.application.domain.FinanceTransaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -27,7 +28,7 @@ public class HumanResourceDAOImpl implements HumanResourceDAO {
 
         List<Employee> employees = null;
 
-        String sql = "SELECT * FROM Employee";
+        String sql = "SELECT * FROM employee";
 
         JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
 

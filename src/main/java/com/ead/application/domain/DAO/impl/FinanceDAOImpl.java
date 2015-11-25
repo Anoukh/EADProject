@@ -28,21 +28,21 @@ public class FinanceDAOImpl implements FinanceDAO {
 
         List<FinanceTransaction> financeTransactions = null;
 
-        String sql = "SELECT * FROM inflow";
+        String sql = "SELECT * FROM inflow where Status='0'";
 
         JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
 
         financeTransactions = jdbcTemplate.query(sql, new RowMapper<FinanceTransaction>() {
 
-            public FinanceTransaction mapRow(ResultSet resultSet, int i) throws SQLException {
+    public FinanceTransaction mapRow(ResultSet resultSet, int i) throws SQLException {
 //                logger.debug("Entered Query");
-                FinanceTransaction financeTransaction = new FinanceTransaction();
+        FinanceTransaction financeTransaction= new FinanceTransaction();
 
                 financeTransaction.setAmount(resultSet.getString("Amount"));
                 financeTransaction.setDate(resultSet.getString("Date"));
                 financeTransaction.setDepartment(resultSet.getString("Department"));
                 financeTransaction.setDescription(resultSet.getString("Description"));
-                financeTransaction.setRequestNo(resultSet.getInt("Request_id"));
+                financeTransaction.setRequestNo(resultSet.getInt("Request_Id"));
 //                logger.debug("End of Query");
                 return financeTransaction;
             }

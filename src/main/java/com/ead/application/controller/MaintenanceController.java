@@ -1,6 +1,7 @@
 package com.ead.application.controller;
 
 import com.ead.application.service.EngineInventoryService;
+import com.ead.application.service.MaintenanceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,14 +17,14 @@ public class MaintenanceController {
 //    private static final Logger logger = Logger.getLogger(InventoryController.class);
 
     @Autowired
-    private EngineInventoryService engineInventoryService;
+    private MaintenanceService maintenanceService;
 
-    @RequestMapping("/inventory")
-    public String listEngine(Model model){
+    @RequestMapping("/maintenance")
+    public String listMachine(Model model){
 
 //        logger.debug("Entered Controller");
-        model.addAttribute("engines", engineInventoryService.getAvailableEngines());
+        model.addAttribute("maintenance", maintenanceService.getMachineInformation());
 
-        return "inventory/inventory-home";
+        return "maintenance/MachineInfoTable";
     }
 }
