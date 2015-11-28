@@ -90,6 +90,9 @@
 	<!-- Page Content -->
 	<div id="page-content-wrapper">
 		<div id="inboxdiv">
+
+			<button type="button" class="btn btn-info btn-lg" data-toggle="modal" onClick="show('popDiv');">Open Modal</button>
+
 			<div class="container-fluid">
 				<div class="row">
 					<div class="col-lg-12" >
@@ -219,7 +222,9 @@
 	<!-- /#page-content-wrapper -->
 
 </div>
-<div id="popDiv" class="modal fade" role="dialog">
+<div id="popDiv"  role="dialog">
+
+	<!--
 	<div  class="modal-dialog">
 		<font size="+2">
 
@@ -278,6 +283,87 @@
 
 		</font>
 	</div>
+
+	-->
+
+	<div class="modal fade" id="AcceptDeclineModal" role="dialog">
+		<div class="modal-dialog">
+
+			<!-- Modal content-->
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title">Verification</h4>
+				</div>
+				<div class="modal-body">
+					<font size="+2">
+
+						<div class="row-fluid">
+							<section class="span12">
+								<aside class ="span3"><input type="text" id=""  name="" placeholder ="Request No." readonly="yes"/></aside>
+								<article class="span6"> </article>
+								<article class ="span3"><input type="text" id="" name="" style="width:100%" placeholder ="Date" readonly="yes"/></article>
+
+							</section>
+						</div>
+
+
+						<div style="height:10px"></div>
+					</font>
+					<font size="+1">
+						<div class="row-fluid">
+							<section class="span12">
+								<aside class ="span1"></aside>
+								<article class="span2"> From  </article>
+								<article class ="span6"><input type="text" id="" name=""  placeholder ="Department Name" readonly="yes"/></article>
+								<article class ="span3"></article>
+
+							</section>
+						</div>
+
+						<div style="height:10px"></div>
+
+						<div class="row-fluid">
+							<section class="span12">
+								<aside class ="span3">Description</aside>
+
+								<article class ="span9"><textarea class="roundcorner" type="text" id="" name="" placeholder ="Description" style="width:100%" readonly="yes"> </textarea></article>
+								<!-- <article class ="span3"></article> -->
+
+							</section>
+						</div>
+
+
+						<div style="height:10px"></div>
+					</font>
+					<font size="+2">
+
+
+						<div class="row-fluid">
+							<section class="span12">
+								<aside class ="span1"></aside>
+								<article class="span7"></article>
+								<aside class ="span2"><button class="span12 btn btn-success " onClick="hide('popDiv');">Accept </button></aside>
+								<article class="span2"><button class="span12 btn btn-danger "  onClick="hide('popDiv');">Decline </button></article>
+								<!--  <article class ="span3"></article> -->
+
+							</section>
+						</div>
+
+
+					</font>
+
+
+				</div>
+				<div class="modal-footer">
+				<!--	<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>  -->
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+
 </div>
 <script>
 

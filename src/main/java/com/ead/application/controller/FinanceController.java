@@ -19,7 +19,7 @@ public class FinanceController {
     public String listTransaction(Model model){
 
 //        logger.debug("Entered Controller");
-        model.addAttribute("transactions", financeTransactionService.getFinancialTransactions());
+      //  model.addAttribute("transactions", financeTransactionService.getFinancialTransactions());
 
         return "finance/financeHome";
     }

@@ -47,12 +47,12 @@
 
     }
 
-   // function pop(div) {
-    //    document.getElementById(div).style.display = 'block';
-   // }
-   // function hide(div) {
-   //     document.getElementById(div).style.display = 'none';
-    //}
+    function show(div) {
+        $("#AcceptDeclineModal").modal('show');
+    }
+    function hide(div) {
+        $("#AcceptDeclineModal").modal('hide');
+    }
 
     //To detect escape button
     document.onkeydown = function(evt) {
