@@ -44,12 +44,27 @@ public class FinanceController {
 
     //@RequestMapping("/acceptfincane") @ResponseBody
     @RequestMapping(value = "/acceptfincane", method = RequestMethod.GET,produces = MediaType.APPLICATION_JSON_VALUE)
-    public  String dd(@RequestParam("reqnumber") String reqnumber, @RequestParam("reqdepartment") String reqdepartment){
+    public   String dd(@RequestParam("reqnumber") String reqnumber, @RequestParam("reqdepartment") String reqdepartment){
            System.out.println(reqnumber);
 
         int intreqnember= Integer.parseInt(reqnumber);
 
         financeTransactionService.acceptTransaction(intreqnember,reqdepartment);
+        //String acceptfincane = MediaType.APPLICATION_JSON_VALUE
+//        logger.debug("Entered Controller");
+        //  model.addAttribute("transactions", financeTransactionService.getFinancialTransactions());
+
+        return "finance/financeHome";
+    }
+
+
+    @RequestMapping(value = "/rejectfincane", method = RequestMethod.GET,produces = MediaType.APPLICATION_JSON_VALUE)
+    public  String jj(@RequestParam("reqnumber") String reqnumber, @RequestParam("reqdepartment") String reqdepartment){
+        System.out.println(reqnumber);
+
+        int intreqnember= Integer.parseInt(reqnumber);
+
+        financeTransactionService.rejectTransaction(intreqnember, reqdepartment);
         //String acceptfincane = MediaType.APPLICATION_JSON_VALUE
 //        logger.debug("Entered Controller");
         //  model.addAttribute("transactions", financeTransactionService.getFinancialTransactions());

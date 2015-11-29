@@ -85,11 +85,11 @@
     function acceptrequest(div) {
         var reqnumber= document.getElementById("reqnumber").value;
         var reqdepartment = document.getElementById("reqdepartment").value;
-        window.alert("Checking");
+        //window.alert("Checking");
         $.ajax({
             type: "GET",
             url: 'acceptfincane',
-            data:  { reqnumber :  "hello" , reqdepartment : reqdepartment },
+            data:  { reqnumber :  "hello" , reqdepartment : "hi" },
             dataType: 'json',
             success: function(dt)
             {
@@ -102,8 +102,20 @@
 
 
     function rejectrequest(div) {
-        var reqnumber= document.getElementById("reqnumber");
-        var reqdepartment = document.getElementById("reqdepartment");
+        var reqnumber= document.getElementById("reqnumber").value;
+        var reqdepartment = document.getElementById("reqdepartment").value;
+
+        $.ajax({
+            type: "GET",
+            url: 'rejectfincane',
+            data:  { reqnumber :  "hello" , reqdepartment : reqdepartment },
+            dataType: 'json',
+            success: function(dt)
+            {
+                window.alert("Done and Dusted");
+
+            }
+        });
 
     $("#AcceptDeclineModal").modal('hide');
     }

@@ -12,4 +12,6 @@ public interface FinanceDAO {
 
 
     void acceptTransactionDb(int reqnumber, String reqdepartment);
+
+    void rejectTransactionDb(int reqnumber, String reqdepartment);
 }

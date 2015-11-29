@@ -12,5 +12,6 @@ public interface FinanceTransactionService {
     List<FinanceTransaction> getFinancialTransactions();
 
     void acceptTransaction(int reqnumber, String reqdepartment);
+    void rejectTransaction(int reqnumber, String reqdepartment);
 }
 

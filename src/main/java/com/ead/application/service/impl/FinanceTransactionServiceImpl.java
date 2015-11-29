@@ -28,5 +28,9 @@ public class FinanceTransactionServiceImpl implements FinanceTransactionService{
         financeDAO.acceptTransactionDb(reqnumber,reqdepartment);
     }
 
+    public void rejectTransaction(int reqnumber, String reqdepartment) {
+        financeDAO.rejectTransactionDb(reqnumber,reqdepartment);
+    }
+
 
 }

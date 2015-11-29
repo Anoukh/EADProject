@@ -55,5 +55,9 @@ public class FinanceDAOImpl implements FinanceDAO {
         
     }
 
+    public void rejectTransactionDb(int reqnumber, String reqdepartment) {
+
+    }
+
 
 }
