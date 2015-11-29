@@ -9,4 +9,7 @@ import java.util.List;
  */
 public interface FinanceDAO {
     List<FinanceTransaction> getPendingTransactions();
+
+
+    void acceptTransactionDb(int reqnumber, String reqdepartment);
 }

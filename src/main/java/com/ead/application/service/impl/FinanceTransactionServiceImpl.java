@@ -23,4 +23,10 @@ public class FinanceTransactionServiceImpl implements FinanceTransactionService{
     public List<FinanceTransaction> getFinancialTransactions() {
         return financeDAO.getPendingTransactions();
     }
+
+    public void acceptTransaction(int reqnumber, String reqdepartment) {
+        financeDAO.acceptTransactionDb(reqnumber,reqdepartment);
+    }
+
+
 }

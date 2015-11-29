@@ -10,4 +10,7 @@ import java.util.List;
  */
 public interface FinanceTransactionService {
     List<FinanceTransaction> getFinancialTransactions();
+
+    void acceptTransaction(int reqnumber, String reqdepartment);
 }
+

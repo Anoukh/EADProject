@@ -50,4 +50,10 @@ public class FinanceDAOImpl implements FinanceDAO {
 
         return financeTransactions;
     }
+
+    public void acceptTransactionDb(int reqnumber, String reqdepartment) {
+        
+    }
+
+
 }

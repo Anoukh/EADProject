@@ -190,6 +190,12 @@
 		</div>
 
 		<div id="cashoutflowdiv">
+
+			<form action="financeoutflow" method="post">
+
+				<button type="submit" value="enter"></button>
+				</form>
+
 			<div class="container-fluid">
 				<div class="row">
 					<div class="col-lg-12" >
@@ -300,9 +306,9 @@
 
 						<div class="row-fluid">
 							<section class="span12">
-								<aside class ="span3"><input type="text" id=""  name="" placeholder ="Request No." readonly="yes"/></aside>
+								<aside class ="span3"><input type="text" id="reqnumber"  name="reqnumber" placeholder ="Request No." readonly="yes"/></aside>
 								<article class="span6"> </article>
-								<article class ="span3"><input type="text" id="" name="" style="width:100%" placeholder ="Date" readonly="yes"/></article>
+								<article class ="span3"><input type="text" id="reqdate" name="reqdate" style="width:100%" placeholder ="Date" readonly="yes"/></article>
 
 							</section>
 						</div>
@@ -315,7 +321,7 @@
 							<section class="span12">
 								<aside class ="span1"></aside>
 								<article class="span2"> From  </article>
-								<article class ="span6"><input type="text" id="" name=""  placeholder ="Department Name" readonly="yes"/></article>
+								<article class ="span6"><input type="text" id="reqdepartment" name="reqdepartment"  placeholder ="Department Name" readonly="yes"/></article>
 								<article class ="span3"></article>
 
 							</section>
@@ -327,7 +333,7 @@
 							<section class="span12">
 								<aside class ="span3">Description</aside>
 
-								<article class ="span9"><textarea class="roundcorner" type="text" id="" name="" placeholder ="Description" style="width:100%" readonly="yes"> </textarea></article>
+								<article class ="span9"><textarea class="roundcorner" type="text" id="reqdes" name="reqdes" placeholder ="Description" style="width:100%" readonly="yes"> </textarea></article>
 								<!-- <article class ="span3"></article> -->
 
 							</section>
@@ -343,8 +349,8 @@
 							<section class="span12">
 								<aside class ="span1"></aside>
 								<article class="span7"></article>
-								<aside class ="span2"><button class="span12 btn btn-success " onClick="hide('popDiv');">Accept </button></aside>
-								<article class="span2"><button class="span12 btn btn-danger "  onClick="hide('popDiv');">Decline </button></article>
+								<aside class ="span2"><button class="span12 btn btn-success " onClick="acceptrequest('popDiv');">Accept </button></aside>
+								<article class="span2"><button class="span12 btn btn-danger "  onClick="rejectrequest('popDiv');">Decline </button></article>
 								<!--  <article class ="span3"></article> -->
 
 							</section>

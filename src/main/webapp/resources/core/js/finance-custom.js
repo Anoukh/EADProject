@@ -27,6 +27,38 @@
         $("#inboxdiv").hide(1000);
         $("#outboxdiv").show(1000);
 
+          $.ajax({
+                type: "GET",
+                url: 'financeoutflow',
+                data:  {},
+                dataType: 'json',
+                success: function()
+                {
+                    window.alert("Done and Dusted");
+                    //window.alert(dt.HotelLLList);
+
+                   /* var hotelLL =dt.HotelLLList;
+                    hlLL =hotelLL.split("_");
+
+                    //window.alert(hLL[1]);
+                    var restLL  =dt.RestLLList;
+                    rtLL =restLL.split("_");
+                    var leisureLL =dt.LeisureLLList;
+                    leLL =leisureLL.split("_");
+
+                    document.getElementById("relatedhotelsuggestions").innerHTML= dt.HotelList;
+                    document.getElementById("relatedrestaurantesuggestions").innerHTML= dt.RestList;
+                    document.getElementById("relatedleisuresuggestions").innerHTML= dt.LeisureList;
+                    placemarkers(hlLL);
+                    placemarkers(rtLL);
+                    placemarkers(leLL);
+                    */
+                    //	document.getElementById("places").value = "'"+dt+"'";
+                }
+        });
+
+
+
 
     }
 
@@ -50,10 +82,31 @@
     function show(div) {
         $("#AcceptDeclineModal").modal('show');
     }
-    function hide(div) {
+    function acceptrequest(div) {
+        var reqnumber= document.getElementById("reqnumber").value;
+        var reqdepartment = document.getElementById("reqdepartment").value;
+        window.alert("Checking");
+        $.ajax({
+            type: "GET",
+            url: 'acceptfincane',
+            data:  { reqnumber :  "hello" , reqdepartment : reqdepartment },
+            dataType: 'json',
+            success: function(dt)
+            {
+                window.alert("Done and Dusted");
+
+            }
+        });
         $("#AcceptDeclineModal").modal('hide');
     }
 
+
+    function rejectrequest(div) {
+        var reqnumber= document.getElementById("reqnumber");
+        var reqdepartment = document.getElementById("reqdepartment");
+
+    $("#AcceptDeclineModal").modal('hide');
+    }
     //To detect escape button
     document.onkeydown = function(evt) {
         evt = evt || window.event;
