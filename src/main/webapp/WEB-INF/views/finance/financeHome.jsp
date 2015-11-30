@@ -111,7 +111,7 @@
 							<tbody class="">
 
 								<c:forEach items="${transactions}" var="transaction">
-								<tr>
+								<tr onclick="show('popDiv');">
 									<td>${transaction.date}</td>
 									<td>${transaction.requestNo}</td>
 									<td>${transaction.department}</td>

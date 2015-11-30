@@ -28,7 +28,7 @@ public class FinanceDAOImpl implements FinanceDAO {
 
         List<FinanceTransaction> financeTransactions = null;
 
-        String sql = "SELECT * FROM inflow where Status='0'";
+        String sql = "SELECT * FROM outflow where Status='0'";
 
         JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
 
