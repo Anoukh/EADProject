@@ -28,7 +28,11 @@ public class FinanceDAOImpl implements FinanceDAO {
 
         List<FinanceTransaction> financeTransactions = null;
 
+<<<<<<< HEAD
         String sql = "SELECT * FROM outflow where Status='0'";
+=======
+        String sql = "SELECT * FROM loadinbox ORDER BY Date DESC ";
+>>>>>>> finance sql changed
 
         JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
 
@@ -43,6 +47,7 @@ public class FinanceDAOImpl implements FinanceDAO {
                 financeTransaction.setDepartment(resultSet.getString("Department"));
                 financeTransaction.setDescription(resultSet.getString("Description"));
                 financeTransaction.setRequestNo(resultSet.getInt("Request_Id"));
+                financeTransaction.setComeFrom(resultSet.getInt("Status"));
 //                logger.debug("End of Query");
                 return financeTransaction;
             }
