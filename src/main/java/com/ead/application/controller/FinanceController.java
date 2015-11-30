@@ -44,12 +44,13 @@ public class FinanceController {
 
     //@RequestMapping("/acceptfincane") @ResponseBody
     @RequestMapping(value = "/acceptfincane", method = RequestMethod.GET,produces = MediaType.APPLICATION_JSON_VALUE)
-    public   String dd(@RequestParam("reqnumber") String reqnumber, @RequestParam("reqdepartment") String reqdepartment){
+    public   String dd(@RequestParam("reqnumber") String reqnumber, @RequestParam("reqdepartment") String reqdepartment,  @RequestParam("callfrom") String callfrom){
            System.out.println(reqnumber);
 
         int intreqnember= Integer.parseInt(reqnumber);
+        int intcallfrom= Integer.parseInt(callfrom);
 
-        financeTransactionService.acceptTransaction(intreqnember,reqdepartment);
+        financeTransactionService.acceptTransaction(intreqnember,reqdepartment,intcallfrom);
         //String acceptfincane = MediaType.APPLICATION_JSON_VALUE
 //        logger.debug("Entered Controller");
         //  model.addAttribute("transactions", financeTransactionService.getFinancialTransactions());
@@ -59,12 +60,13 @@ public class FinanceController {
 
 
     @RequestMapping(value = "/rejectfincane", method = RequestMethod.GET,produces = MediaType.APPLICATION_JSON_VALUE)
-    public  String jj(@RequestParam("reqnumber") String reqnumber, @RequestParam("reqdepartment") String reqdepartment){
+    public  String jj(@RequestParam("reqnumber") String reqnumber, @RequestParam("reqdepartment") String reqdepartment, @RequestParam("status") String callfrom){
         System.out.println(reqnumber);
 
         int intreqnember= Integer.parseInt(reqnumber);
+        int intcallfrom= Integer.parseInt(callfrom);
 
-        financeTransactionService.rejectTransaction(intreqnember, reqdepartment);
+        financeTransactionService.rejectTransaction(intreqnember, reqdepartment,intcallfrom);
         //String acceptfincane = MediaType.APPLICATION_JSON_VALUE
 //        logger.debug("Entered Controller");
         //  model.addAttribute("transactions", financeTransactionService.getFinancialTransactions());

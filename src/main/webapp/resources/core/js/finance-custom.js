@@ -89,7 +89,7 @@
         $.ajax({
             type: "GET",
             url: 'acceptfincane',
-            data:  { reqnumber :  "hello" , reqdepartment : "hi" },
+            data:  { reqnumber :  "1" , reqdepartment : "hi", callfrom :"1"  },
             dataType: 'json',
             success: function(dt)
             {
@@ -108,7 +108,7 @@
         $.ajax({
             type: "GET",
             url: 'rejectfincane',
-            data:  { reqnumber :  "hello" , reqdepartment : reqdepartment },
+            data:  { reqnumber :  "1" , reqdepartment : reqdepartment, callfrom :"1" },
             dataType: 'json',
             success: function(dt)
             {

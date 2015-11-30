@@ -24,12 +24,13 @@ public class FinanceTransactionServiceImpl implements FinanceTransactionService{
         return financeDAO.getPendingTransactions();
     }
 
-    public void acceptTransaction(int reqnumber, String reqdepartment) {
-        financeDAO.acceptTransactionDb(reqnumber,reqdepartment);
+    public void acceptTransaction(int reqnumber, String reqdepartment, int callfrom) {
+        System.out.println(reqnumber+ "hello2");
+        financeDAO.acceptTransactionDb(reqnumber,reqdepartment,callfrom);
     }
 
-    public void rejectTransaction(int reqnumber, String reqdepartment) {
-        financeDAO.rejectTransactionDb(reqnumber,reqdepartment);
+    public void rejectTransaction(int reqnumber, String reqdepartment, int callfrom) {
+        financeDAO.rejectTransactionDb(reqnumber,reqdepartment,callfrom);
     }
 
 

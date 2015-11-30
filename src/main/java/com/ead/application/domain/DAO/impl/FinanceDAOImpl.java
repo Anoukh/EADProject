@@ -28,19 +28,15 @@ public class FinanceDAOImpl implements FinanceDAO {
 
         List<FinanceTransaction> financeTransactions = null;
 
-<<<<<<< HEAD
-        String sql = "SELECT * FROM outflow where Status='0'";
-=======
         String sql = "SELECT * FROM loadinbox ORDER BY Date DESC ";
->>>>>>> finance sql changed
 
         JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
 
         financeTransactions = jdbcTemplate.query(sql, new RowMapper<FinanceTransaction>() {
 
-    public FinanceTransaction mapRow(ResultSet resultSet, int i) throws SQLException {
+            public FinanceTransaction mapRow(ResultSet resultSet, int i) throws SQLException {
 //                logger.debug("Entered Query");
-        FinanceTransaction financeTransaction= new FinanceTransaction();
+                FinanceTransaction financeTransaction = new FinanceTransaction();
 
                 financeTransaction.setAmount(resultSet.getString("Amount"));
                 financeTransaction.setDate(resultSet.getString("Date"));
@@ -56,11 +52,22 @@ public class FinanceDAOImpl implements FinanceDAO {
         return financeTransactions;
     }
 
-    public void acceptTransactionDb(int reqnumber, String reqdepartment) {
-        
+    public void acceptTransactionDb(int reqnumber, String reqdepartment, int callfrom) {
+       String sql ="";
+        System.out.println("DBexecute");
+        if(callfrom == 8){
+           sql = "UPDATE inflow SET Status = 1 WHERE Request_No =  "+reqnumber+ "AND Department = "+reqdepartment;
+       }
+        else if(callfrom == 9){
+            sql = "UPDATE outflow SET Status = 1 WHERE Request_No =  "+reqnumber+ "AND Department = "+reqdepartment;
+
+        }
+
+        JdbcTemplate jdbcTemplate = new JdbcTemplate();
+        jdbcTemplate.update(sql);
     }
 
-    public void rejectTransactionDb(int reqnumber, String reqdepartment) {
+    public void rejectTransactionDb(int reqnumber, String reqdepartment, int callfrom) {
 
     }
 

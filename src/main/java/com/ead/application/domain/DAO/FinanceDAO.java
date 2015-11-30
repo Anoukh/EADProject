@@ -11,7 +11,7 @@ public interface FinanceDAO {
     List<FinanceTransaction> getPendingTransactions();
 
 
-    void acceptTransactionDb(int reqnumber, String reqdepartment);
+    void acceptTransactionDb(int reqnumber, String reqdepartment, int callfrom);
 
-    void rejectTransactionDb(int reqnumber, String reqdepartment);
+    void rejectTransactionDb(int reqnumber, String reqdepartment, int callfrom);
 }
