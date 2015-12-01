@@ -20,9 +20,8 @@ public class FinanceTransactionServiceImpl implements FinanceTransactionService{
     @Autowired
     FinanceDAO financeDAO;
 
-    public List<FinanceTransaction> getFinancialTransactions() {
-        return financeDAO.getPendingTransactions();
-    }
+    public List<FinanceTransaction> getFinancialTransactions() {return financeDAO.getPendingTransactions();}
+    public List<FinanceTransaction> getOutBoxTransactions() {return financeDAO.getOutBoxTransactions();}
 
     public void acceptTransaction(int reqnumber, String reqdepartment, int callfrom) {
         System.out.println("hello2");

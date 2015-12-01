@@ -89,7 +89,15 @@
         $.ajax({
             type: "GET",
             url: 'acceptfincane',
+<<<<<<< 29b4b5ff3494308b1aafe14204e7f4061bba4b39
             data:  { reqnumber :  "32" , reqdepartment : "Sales", callfrom :"8"  },
+=======
+<<<<<<< 24f9a9ecb2285cbd3e70c2a552072cfa673ce5e4
+            data:  { reqnumber :  "1" , reqdepartment : "hi", callfrom :"1"  },
+=======
+            data:  { reqnumber :  "1" , reqdepartment : "hi" },
+>>>>>>> upto comefrom
+>>>>>>> upto comefrom
             dataType: 'json',
             success: function(dt)
             {

@@ -63,6 +63,7 @@
 <div id="wrapper">
 
 	<!-- Sidebar -->
+	<!-- Sidebar -->
 	<div id="sidebar-wrapper">
 		<ul class="sidebar-nav" >
 			<li class="sidebar-brand">
@@ -149,7 +150,20 @@
 							</thead>
 							<tbody class="">
 
+							<c:forEach items="${outboxes}" var="outboxes">
+								<tr onclick="show('popDiv');">
+									<td>${outboxes.date}</td>
+									<td>${outboxes.requestNo}</td>
+									<td>${outboxes.department}</td>
+									<td>${outboxes.description}</td>
+									<td>${outboxes.amount}</td>
+
+								</tr>
+							</c:forEach>
+
+
 							</tbody>
+
 						</table>
 
 

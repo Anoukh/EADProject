@@ -30,7 +30,11 @@ public class FinanceDAOImpl implements FinanceDAO {
 
         List<FinanceTransaction> financeTransactions = null;
 
+<<<<<<< 24f9a9ecb2285cbd3e70c2a552072cfa673ce5e4
         String sql = "SELECT * FROM loadinbox ORDER BY Date DESC ";
+=======
+        String sql = "SELECT * FROM loadinbox ORDER BY Date ASC";
+>>>>>>> upto comefrom
 
         JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
 
@@ -40,12 +44,20 @@ public class FinanceDAOImpl implements FinanceDAO {
 //                logger.debug("Entered Query");
                 FinanceTransaction financeTransaction = new FinanceTransaction();
 
+<<<<<<< 24f9a9ecb2285cbd3e70c2a552072cfa673ce5e4
                 financeTransaction.setAmount(resultSet.getString("Amount"));
                 financeTransaction.setDate(resultSet.getString("Date"));
                 financeTransaction.setDepartment(resultSet.getString("Department"));
                 financeTransaction.setDescription(resultSet.getString("Description"));
                 financeTransaction.setRequestNo(resultSet.getInt("Request_Id"));
                 financeTransaction.setComeFrom(resultSet.getInt("Status"));
+=======
+        financeTransaction.setAmount(resultSet.getString("Amount"));
+        financeTransaction.setDate(resultSet.getString("Date"));
+        financeTransaction.setDepartment(resultSet.getString("Department"));
+        financeTransaction.setDescription(resultSet.getString("Description"));
+        financeTransaction.setRequestNo(resultSet.getInt("Request_Id"));
+>>>>>>> upto comefrom
 //                logger.debug("End of Query");
                 return financeTransaction;
             }
@@ -53,7 +65,10 @@ public class FinanceDAOImpl implements FinanceDAO {
 
         return financeTransactions;
     }
+    public List<FinanceTransaction> getOutBoxTransactions() {
+        List<FinanceTransaction> financeOutBoxTransactions = null;
 
+<<<<<<< 24f9a9ecb2285cbd3e70c2a552072cfa673ce5e4
     public void acceptTransactionDb(int reqnumber, String reqdepartment, int callfrom) {
        String sql ="";
         System.out.println(reqnumber+"  "+ reqdepartment+"  " + callfrom);
@@ -74,6 +89,7 @@ public class FinanceDAOImpl implements FinanceDAO {
     }
 
     public void rejectTransactionDb(int reqnumber, String reqdepartment, int callfrom) {
+<<<<<<< 29b4b5ff3494308b1aafe14204e7f4061bba4b39
         String sql ="";
         System.out.println(reqnumber+"  "+ reqdepartment+"  " + callfrom);
         System.out.println("DBexecute");
@@ -84,6 +100,37 @@ public class FinanceDAOImpl implements FinanceDAO {
         }
         else if(callfrom == 9){
             sql = "UPDATE outflow SET Status = 1 WHERE Request_No =  "+reqnumber+ "AND Department = "+reqdepartment;
+=======
+=======
+        String sql = "SELECT * FROM loadoutbox ORDER BY Date ASC";
+
+        JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
+
+        financeOutBoxTransactions = jdbcTemplate.query(sql, new RowMapper<FinanceTransaction>() {
+
+            public FinanceTransaction mapRow(ResultSet resultSet, int i) throws SQLException {
+//                logger.debug("Entered Query");
+                FinanceTransaction financeOutBoxTransaction= new FinanceTransaction();
+
+                financeOutBoxTransaction.setAmount(resultSet.getString("Amount"));
+                financeOutBoxTransaction.setDate(resultSet.getString("Date"));
+                financeOutBoxTransaction.setDepartment(resultSet.getString("Department"));
+                financeOutBoxTransaction.setDescription(resultSet.getString("Description"));
+                financeOutBoxTransaction.setRequestNo(resultSet.getInt("Request_Id"));
+//                logger.debug("End of Query");
+                return financeOutBoxTransaction;
+            }
+        });
+
+        return financeOutBoxTransactions;
+    }
+
+    public void acceptTransactionDb(int reqnumber, String reqdepartment) {
+
+    }
+    public void rejectTransactionDb(int reqnumber, String reqdepartment) {
+>>>>>>> upto comefrom
+>>>>>>> upto comefrom
 
         }
         System.out.println(sql);
