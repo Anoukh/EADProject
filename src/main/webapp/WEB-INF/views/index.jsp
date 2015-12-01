@@ -1,3 +1,4 @@
+<%@ taglib prefix="e" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: anoukh
@@ -10,9 +11,34 @@
 <head>
     <title>Welcome Page</title>
 </head>
-<body>
-  <h2>Hello World!</h2>
 
-  <h3>Click Here for <a href="/inventory">Inventory</a> </h3>
+  <h2>Login</h2>
+
+<form>
+
+<table>
+  <tr>
+    <td>
+
+      User Name
+
+      <input type="text" value="" id="User">
+    </td>
+  </tr>
+  <tr>
+    <td>
+  Password
+
+      <input type="password" value="" id="Password">
+    </td>
+  </tr>
+<tr>
+
+  <td>
+    <input type="submit" value="Login">
+  </td>
+</tr>
+</table>
+</form>
 </body>
 </html>
