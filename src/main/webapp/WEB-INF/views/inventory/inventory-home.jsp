@@ -106,34 +106,38 @@
                     <div class="col-lg-12" >
                         <h1>Add New Engine</h1>
 
-                        <form name="AddNewEngine" id="addNewEngineForm" action="#" method="POST">
+                        <form name="AddNewEngine" id="addNewEngineForm" action="/postEngine" method="POST">
                             <div class="form-group col-lg-4">
                                 <label for="engineName">Engine Name</label>
-                                <input class="form-control" type="text" name="EngineName" id="engineName" placeholder="Engine Name">
+                                <input class="form-control" type="text" name="engine_name" id="engineName" placeholder="Engine Name">
                             </div>
                             <div class="form-group col-lg-4">
                                 <label for="numberOfCylinders">Number of Cylinders</label>
-                                <input class="form-control" type="text" name="NumberOfCylinders" id="numberOfCylinders" placeholder="Number of Cylinders">
+                                <input class="form-control" type="text" name="no_of_cylinders" id="numberOfCylinders" placeholder="Number of Cylinders">
                             </div>
                             <div class="form-group col-lg-4">
                                 <label for="cubicCapacity">Cubic Capacity</label>
-                                <input class="form-control" type="text" name="CubicCapacity" id="cubicCapacity" placeholder="Cubic Capacity">
+                                <input class="form-control" type="text" name="cc" id="cubicCapacity" placeholder="Cubic Capacity">
                             </div>
                             <div class="form-group col-lg-4">
                                 <label for="fuelType">Fuel Type</label>
-                                <select class="form-control" name="FuelType" id="fuelType">
+                                <select class="form-control" name="fuel_type" id="fuelType">
                                     <option disabled selected>--Select One-- </option>
-                                    <option>Petrol</option>
-                                    <option>Diesel</option>
+                                    <option value="PET">Petrol</option>
+                                    <option value="DIS">Diesel</option>
                                 </select>
                             </div>
                             <div class="form-group col-lg-4">
                                 <label for="mountType">Mounting Type</label>
-                                <select class="form-control" name="MountType" id="mountType">
+                                <select class="form-control" name="mounting_type" id="mountType">
                                     <option disabled selected>--Select One-- </option>
                                     <option>Traverse</option>
                                     <option>Longitudinal</option>
                                 </select>
+                            </div>
+                            <div class="form-group col-lg-4">
+                                <label for="numberOfCylinders">Price</label>
+                                <input class="form-control" type="text" name="price" id="price" placeholder="Price">
                             </div>
                             <div id="submitNewEngineButton" class="form-group">
                                 <div class="col-sm-10">

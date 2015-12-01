@@ -10,7 +10,7 @@ public class FinanceTransaction {
     private String department;
     private String description;
     private String amount;
-
+    private int requestcomefrom;
 /*      Getters and Setters       */
 
     public String getDate() {
@@ -28,6 +28,15 @@ public class FinanceTransaction {
     public void setRequestNo(int requestNo) {
         this.requestNo = requestNo;
     }
+
+    public int getComeFrom() {
+        return requestcomefrom;
+    }
+
+    public void setComeFrom(int requestcomefrom) {
+        this.requestcomefrom = requestcomefrom;
+    }
+
 
     public String getDepartment() {
         return department;

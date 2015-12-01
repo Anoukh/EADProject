@@ -12,6 +12,16 @@ public class Engine {
     private int cc;
     private int no_of_cylinders;
 
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    private double price;
+
 /*      Getters and Setters       */
 
     public int getEngineID() { return engineID; }
@@ -45,13 +55,14 @@ public class Engine {
         super();
     }
 
-    public Engine(int engineID, String engine_name, String fuel_type, String mounting_type, int cc, int no_of_cylinders) {
+    public Engine(int engineID, String engine_name, String fuel_type, String mounting_type, int cc, int no_of_cylinders, double price) {
         this.engineID = engineID;
         this.engine_name = engine_name;
         this.fuel_type = fuel_type;
         this.mounting_type = mounting_type;
         this.cc = cc;
         this.no_of_cylinders = no_of_cylinders;
+        this.price = price;
     }
 
     @Override

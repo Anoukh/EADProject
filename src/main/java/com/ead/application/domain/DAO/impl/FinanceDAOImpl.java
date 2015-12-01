@@ -21,22 +21,24 @@ import java.util.List;
 
 @Repository
 public class FinanceDAOImpl implements FinanceDAO {
+
     @Autowired
     DataSource dataSource;
+
 
     public List<FinanceTransaction> getPendingTransactions() {
 
         List<FinanceTransaction> financeTransactions = null;
 
-        String sql = "SELECT * FROM inflow where Status='0'";
+        String sql = "SELECT * FROM loadinbox ORDER BY Date ASC";
 
         JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
 
         financeTransactions = jdbcTemplate.query(sql, new RowMapper<FinanceTransaction>() {
 
-    public FinanceTransaction mapRow(ResultSet resultSet, int i) throws SQLException {
+            public FinanceTransaction mapRow(ResultSet resultSet, int i) throws SQLException {
 //                logger.debug("Entered Query");
-        FinanceTransaction financeTransaction= new FinanceTransaction();
+                FinanceTransaction financeTransaction= new FinanceTransaction();
 
                 financeTransaction.setAmount(resultSet.getString("Amount"));
                 financeTransaction.setDate(resultSet.getString("Date"));
@@ -50,4 +52,125 @@ public class FinanceDAOImpl implements FinanceDAO {
 
         return financeTransactions;
     }
+
+
+
+    public void acceptTransactionDb(int reqnumber, String reqdepartment, int callfrom) {
+       String sql ="";
+        System.out.println(reqnumber+"  "+ reqdepartment+"  " + callfrom);
+        System.out.println("DBexecute");
+        if(callfrom == 8){
+           sql = "UPDATE inflow SET Status = '1' WHERE Request_No = '"+reqnumber+ "' AND Department = '"+reqdepartment+"'";
+           // sql = "UPDATE inflow SET Status = '1' WHERE Request_No =  '32' AND Department = 'Sales'";
+
+       }
+        else if(callfrom == 9){
+            sql = "UPDATE outflow SET Status = 1 WHERE Request_No =  "+reqnumber+ "AND Department = "+reqdepartment;
+
+        }
+        System.out.println(sql);
+        JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
+        jdbcTemplate.update(sql);
+    }
+
+    public void rejectTransactionDb(int reqnumber, String reqdepartment, int callfrom) {
+
+        String sql = "";
+        System.out.println(reqnumber + "  " + reqdepartment + "  " + callfrom);
+        System.out.println("DBexecute");
+        if (callfrom == 8) {
+            sql = "UPDATE inflow SET Status = '1' WHERE Request_No = '" + reqnumber + "' AND Department = '" + reqdepartment + "'";
+            // sql = "UPDATE inflow SET Status = '1' WHERE Request_No =  '32' AND Department = 'Sales'";
+
+        } else if (callfrom == 9) {
+            sql = "UPDATE outflow SET Status = 1 WHERE Request_No =  " + reqnumber + "AND Department = " + reqdepartment;
+        }
+        System.out.println(sql);
+
+        JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
+        jdbcTemplate.update(sql);
+    }
+
+
+    public List<FinanceTransaction> getOutBoxTransactions() {
+        List<FinanceTransaction> financeOutBoxTransactions = null;
+        String sql = "SELECT * FROM loadoutbox ORDER BY Date ASC";
+
+        JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
+
+        financeOutBoxTransactions = jdbcTemplate.query(sql, new RowMapper<FinanceTransaction>() {
+
+            public FinanceTransaction mapRow(ResultSet resultSet, int i) throws SQLException {
+//                logger.debug("Entered Query");
+                FinanceTransaction financeOutBoxTransaction= new FinanceTransaction();
+
+                financeOutBoxTransaction.setAmount(resultSet.getString("Amount"));
+                financeOutBoxTransaction.setDate(resultSet.getString("Date"));
+                financeOutBoxTransaction.setDepartment(resultSet.getString("Department"));
+                financeOutBoxTransaction.setDescription(resultSet.getString("Description"));
+                financeOutBoxTransaction.setRequestNo(resultSet.getInt("Request_Id"));
+//                logger.debug("End of Query");
+                return financeOutBoxTransaction;
+            }
+        });
+
+        return financeOutBoxTransactions;
+    }
+
+
+
+    public List<FinanceTransaction> getInFlowTransactions(){
+        List<FinanceTransaction> financeInFlowTransactions = null;
+
+        String sql = "SELECT * FROM inflow WHERE Status='1' ORDER BY Date ASC";
+
+        JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
+
+        financeInFlowTransactions = jdbcTemplate.query(sql, new RowMapper<FinanceTransaction>() {
+
+            public FinanceTransaction mapRow(ResultSet resultSet, int i) throws SQLException {
+//                logger.debug("Entered Query");
+                FinanceTransaction financeInFlowTransaction= new FinanceTransaction();
+
+                financeInFlowTransaction.setAmount(resultSet.getString("Amount"));
+                financeInFlowTransaction.setDate(resultSet.getString("Date"));
+                financeInFlowTransaction.setDepartment(resultSet.getString("Department"));
+                financeInFlowTransaction.setDescription(resultSet.getString("Description"));
+                financeInFlowTransaction.setRequestNo(resultSet.getInt("Request_Id"));
+//                logger.debug("End of Query");
+                return financeInFlowTransaction;
+            }
+        });
+
+        return financeInFlowTransactions;
+    }
+
+    public List<FinanceTransaction> getOutFlowTransactions(){
+        List<FinanceTransaction> financeOutFlowTransactions = null;
+
+        String sql = "SELECT * FROM outflow WHERE Status='1' ORDER BY Date ASC";
+
+        JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
+
+        financeOutFlowTransactions = jdbcTemplate.query(sql, new RowMapper<FinanceTransaction>() {
+
+            public FinanceTransaction mapRow(ResultSet resultSet, int i) throws SQLException {
+//                logger.debug("Entered Query");
+                FinanceTransaction financeOutFlowTransaction= new FinanceTransaction();
+
+                financeOutFlowTransaction.setAmount(resultSet.getString("Amount"));
+                financeOutFlowTransaction.setDate(resultSet.getString("Date"));
+                financeOutFlowTransaction.setDepartment(resultSet.getString("Department"));
+                financeOutFlowTransaction.setDescription(resultSet.getString("Description"));
+                financeOutFlowTransaction.setRequestNo(resultSet.getInt("Request_Id"));
+//                logger.debug("End of Query");
+                return financeOutFlowTransaction;
+            }
+        });
+
+        return financeOutFlowTransactions;
+
+    }
+
+
 }

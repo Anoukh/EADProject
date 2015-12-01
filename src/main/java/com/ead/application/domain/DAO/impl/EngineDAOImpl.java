@@ -23,13 +23,16 @@ public class EngineDAOImpl implements EngineDAO {
     @Autowired
     DataSource dataSource;
 
+
+
+
     public List<Engine> listEngine() {
 //        logger.debug("Entered DAO");
         List<Engine> engines = null;
 
-        String sql = "SELECT * FROM tbl_engine";
-
         JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
+
+        String sql = "SELECT * FROM tbl_engine";
 
         engines = jdbcTemplate.query(sql, new RowMapper<Engine>() {
 
@@ -50,5 +53,24 @@ public class EngineDAOImpl implements EngineDAO {
 
 //        logger.debug("Return Query");
         return engines;
+    }
+
+    public String addNewEngine(Engine engine) {
+
+        JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
+
+        String sql = "INSERT INTO tbl_engine (engine_name, fuel_type, mounting_type, cc, no_of_cylinders, price)"
+                + " VALUES (?, ?, ?, ?, ?, ?)";
+
+        try {
+            jdbcTemplate.update(sql, engine.getEngine_name(), engine.getFuel_type(), engine.getMounting_type(),
+                    engine.getCc(), engine.getNo_of_cylinders(), engine.getPrice());
+        }catch (Exception e) {
+            System.out.println(e);
+            return "Error";
+        }
+
+        return "Success";
+
     }
 }
