@@ -22,6 +22,8 @@ public class FinanceTransactionServiceImpl implements FinanceTransactionService{
 
     public List<FinanceTransaction> getFinancialTransactions() {return financeDAO.getPendingTransactions();}
     public List<FinanceTransaction> getOutBoxTransactions() {return financeDAO.getOutBoxTransactions();}
+    public List<FinanceTransaction> getInFlowTransactions() {return financeDAO.getInFlowTransactions();}
+    public List<FinanceTransaction> getOutFlowTransactions() {return financeDAO.getOutFlowTransactions();}
 
     public void acceptTransaction(int reqnumber, String reqdepartment, int callfrom) {
         System.out.println("hello2");

@@ -30,11 +30,7 @@ public class FinanceDAOImpl implements FinanceDAO {
 
         List<FinanceTransaction> financeTransactions = null;
 
-<<<<<<< 24f9a9ecb2285cbd3e70c2a552072cfa673ce5e4
-        String sql = "SELECT * FROM loadinbox ORDER BY Date DESC ";
-=======
         String sql = "SELECT * FROM loadinbox ORDER BY Date ASC";
->>>>>>> upto comefrom
 
         JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
 
@@ -42,22 +38,13 @@ public class FinanceDAOImpl implements FinanceDAO {
 
             public FinanceTransaction mapRow(ResultSet resultSet, int i) throws SQLException {
 //                logger.debug("Entered Query");
-                FinanceTransaction financeTransaction = new FinanceTransaction();
+                FinanceTransaction financeTransaction= new FinanceTransaction();
 
-<<<<<<< 24f9a9ecb2285cbd3e70c2a552072cfa673ce5e4
                 financeTransaction.setAmount(resultSet.getString("Amount"));
                 financeTransaction.setDate(resultSet.getString("Date"));
                 financeTransaction.setDepartment(resultSet.getString("Department"));
                 financeTransaction.setDescription(resultSet.getString("Description"));
                 financeTransaction.setRequestNo(resultSet.getInt("Request_Id"));
-                financeTransaction.setComeFrom(resultSet.getInt("Status"));
-=======
-        financeTransaction.setAmount(resultSet.getString("Amount"));
-        financeTransaction.setDate(resultSet.getString("Date"));
-        financeTransaction.setDepartment(resultSet.getString("Department"));
-        financeTransaction.setDescription(resultSet.getString("Description"));
-        financeTransaction.setRequestNo(resultSet.getInt("Request_Id"));
->>>>>>> upto comefrom
 //                logger.debug("End of Query");
                 return financeTransaction;
             }
@@ -68,6 +55,7 @@ public class FinanceDAOImpl implements FinanceDAO {
     public List<FinanceTransaction> getOutBoxTransactions() {
         List<FinanceTransaction> financeOutBoxTransactions = null;
 
+<<<<<<< 3f0ba25dde801ec5c3dc71dc2f2ef4d7b8c4181d
 <<<<<<< 24f9a9ecb2285cbd3e70c2a552072cfa673ce5e4
     public void acceptTransactionDb(int reqnumber, String reqdepartment, int callfrom) {
        String sql ="";
@@ -102,6 +90,8 @@ public class FinanceDAOImpl implements FinanceDAO {
             sql = "UPDATE outflow SET Status = 1 WHERE Request_No =  "+reqnumber+ "AND Department = "+reqdepartment;
 =======
 =======
+=======
+>>>>>>> new pages for finance inbox and outbox
         String sql = "SELECT * FROM loadoutbox ORDER BY Date ASC";
 
         JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
@@ -125,9 +115,61 @@ public class FinanceDAOImpl implements FinanceDAO {
         return financeOutBoxTransactions;
     }
 
-    public void acceptTransactionDb(int reqnumber, String reqdepartment) {
+    public void acceptTransactionDb(int reqnumber, String reqdepartment, int callfrom) {
+        String sql ="";
+        if(callfrom == 8){
+            sql = "UPDATE inflow SET Status = 1 WHERE Request_No = '"+reqnumber+ "'AND Department ='"+reqdepartment+"'";
+        }
+        else if(callfrom == 9){
+            sql = "UPDATE outflow SET Status = 1 WHERE Request_No = '"+reqnumber+ "'AND Department ='"+reqdepartment+"'";
+
+        }
+
+        JdbcTemplate jdbcTemplate = new JdbcTemplate();
+        jdbcTemplate.update(sql);
 
     }
+    public void rejectTransactionDb(int reqnumber, String reqdepartment, int callfrom) {
+        String sql ="";
+        if(callfrom == 8){
+            sql = "UPDATE inflow SET Status = 2 WHERE Request_No = '"+reqnumber+ "'AND Department ='"+reqdepartment+"'";
+        }
+        else if(callfrom == 9){
+            sql = "UPDATE outflow SET Status = 2 WHERE Request_No =  "+reqnumber+ "AND Department = "+reqdepartment;
+
+        }
+
+        JdbcTemplate jdbcTemplate = new JdbcTemplate();
+        jdbcTemplate.update(sql);
+
+    }
+
+    public List<FinanceTransaction> getInFlowTransactions(){
+        List<FinanceTransaction> financeInFlowTransactions = null;
+
+        String sql = "SELECT * FROM inflow WHERE Status='1' ORDER BY Date ASC";
+
+        JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
+
+        financeInFlowTransactions = jdbcTemplate.query(sql, new RowMapper<FinanceTransaction>() {
+
+            public FinanceTransaction mapRow(ResultSet resultSet, int i) throws SQLException {
+//                logger.debug("Entered Query");
+                FinanceTransaction financeInFlowTransaction= new FinanceTransaction();
+
+                financeInFlowTransaction.setAmount(resultSet.getString("Amount"));
+                financeInFlowTransaction.setDate(resultSet.getString("Date"));
+                financeInFlowTransaction.setDepartment(resultSet.getString("Department"));
+                financeInFlowTransaction.setDescription(resultSet.getString("Description"));
+                financeInFlowTransaction.setRequestNo(resultSet.getInt("Request_Id"));
+//                logger.debug("End of Query");
+                return financeInFlowTransaction;
+            }
+        });
+
+        return financeInFlowTransactions;
+    }
+<<<<<<< 3f0ba25dde801ec5c3dc71dc2f2ef4d7b8c4181d
     public void rejectTransactionDb(int reqnumber, String reqdepartment) {
 >>>>>>> upto comefrom
 >>>>>>> upto comefrom
@@ -137,6 +179,32 @@ public class FinanceDAOImpl implements FinanceDAO {
 
         JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
         jdbcTemplate.update(sql);
+=======
+    public List<FinanceTransaction> getOutFlowTransactions(){
+        List<FinanceTransaction> financeOutFlowTransactions = null;
+
+        String sql = "SELECT * FROM outflow WHERE Status='1' ORDER BY Date ASC";
+
+        JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
+
+        financeOutFlowTransactions = jdbcTemplate.query(sql, new RowMapper<FinanceTransaction>() {
+
+            public FinanceTransaction mapRow(ResultSet resultSet, int i) throws SQLException {
+//                logger.debug("Entered Query");
+                FinanceTransaction financeOutFlowTransaction= new FinanceTransaction();
+
+                financeOutFlowTransaction.setAmount(resultSet.getString("Amount"));
+                financeOutFlowTransaction.setDate(resultSet.getString("Date"));
+                financeOutFlowTransaction.setDepartment(resultSet.getString("Department"));
+                financeOutFlowTransaction.setDescription(resultSet.getString("Description"));
+                financeOutFlowTransaction.setRequestNo(resultSet.getInt("Request_Id"));
+//                logger.debug("End of Query");
+                return financeOutFlowTransaction;
+            }
+        });
+
+        return financeOutFlowTransactions;
+>>>>>>> new pages for finance inbox and outbox
     }
 
 

@@ -11,6 +11,8 @@ import java.util.List;
 public interface FinanceTransactionService {
     List<FinanceTransaction> getFinancialTransactions();
     List<FinanceTransaction> getOutBoxTransactions();
+    List<FinanceTransaction> getInFlowTransactions();
+    List<FinanceTransaction> getOutFlowTransactions();
 
     void acceptTransaction(int reqnumber, String reqdepartment, int callfrom);
     void rejectTransaction(int reqnumber, String reqdepartment, int callfrom);

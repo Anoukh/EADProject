@@ -22,15 +22,28 @@ public class FinanceController {
     @Autowired
     FinanceTransactionService financeTransactionService;
     //View data
-    @RequestMapping("/finance")
-    public String listTransaction(Model model){
-
-    //logger.debug("Entered Controller");
-      model.addAttribute("transactions", financeTransactionService.getFinancialTransactions());
-      model.addAttribute("outboxes", financeTransactionService.getOutBoxTransactions());
-
-        return "finance/financeHome";
+    @RequestMapping("/finance/financeInBox")
+    public String listInBoxTransaction(Model model){
+        model.addAttribute("transactions", financeTransactionService.getFinancialTransactions());
+        return "finance/financeInBox";
     }
+    @RequestMapping("/finance/financeOutBox")
+    public String listOutBoxTransaction(Model model){
+
+        model.addAttribute("outboxes", financeTransactionService.getOutBoxTransactions());
+        return "finance/financeOutBox";
+    }
+    @RequestMapping("/finance/financeInFlow")
+    public String listInFlowTransaction(Model model){
+        model.addAttribute("inflows", financeTransactionService.getInFlowTransactions());
+        return "finance/financeInFlow";
+    }
+    @RequestMapping("/finance/financeOutFlow")
+    public String listOutFlowTransaction(Model model){
+        model.addAttribute("outflows", financeTransactionService.getOutFlowTransactions());
+        return "finance/financeOutFlow";
+    }
+
 
 <<<<<<< 29b4b5ff3494308b1aafe14204e7f4061bba4b39
     //@ResponseBody
@@ -66,14 +79,9 @@ public class FinanceController {
 =======
 
     @RequestMapping(value = "/acceptfincane", method = RequestMethod.GET,produces = MediaType.APPLICATION_JSON_VALUE)
-<<<<<<< 24f9a9ecb2285cbd3e70c2a552072cfa673ce5e4
-    public   String dd(@RequestParam("reqnumber") String reqnumber, @RequestParam("reqdepartment") String reqdepartment,  @RequestParam("callfrom") String callfrom){
-           System.out.println(reqnumber);
-=======
-    public   String dd(@RequestParam("reqnumber") String reqnumber, @RequestParam("reqdepartment") String reqdepartment){
+    public   String dd(@RequestParam("reqnumber") String reqnumber, @RequestParam("reqdepartment") String reqdepartment,@RequestParam("callfrom") String callfrom){
 
         System.out.println(reqnumber+reqdepartment);
->>>>>>> upto comefrom
 
         int intreqnember= Integer.parseInt(reqnumber);
         int intcallfrom= Integer.parseInt(callfrom);
@@ -90,12 +98,8 @@ public class FinanceController {
 
 
     @RequestMapping(value = "/rejectfincane", method = RequestMethod.GET,produces = MediaType.APPLICATION_JSON_VALUE)
-<<<<<<< 24f9a9ecb2285cbd3e70c2a552072cfa673ce5e4
-    public  String jj(@RequestParam("reqnumber") String reqnumber, @RequestParam("reqdepartment") String reqdepartment, @RequestParam("status") String callfrom){
-=======
-    public  String jj(@RequestParam("reqnumber") String reqnumber, @RequestParam("reqdepartment") String reqdepartment){
+    public  String jj(@RequestParam("reqnumber") String reqnumber, @RequestParam("reqdepartment") String reqdepartment,@RequestParam("callfrom") String callfrom){
 
->>>>>>> upto comefrom
         System.out.println(reqnumber);
 
         int intreqnember= Integer.parseInt(reqnumber);
