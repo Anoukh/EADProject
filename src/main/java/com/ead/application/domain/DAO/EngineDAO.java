@@ -9,6 +9,7 @@ import java.util.List;
  */
 public interface EngineDAO {
     List<Engine> listEngine();
-
     String addNewEngine(Engine engine);
+    Engine findengineByID(int id);
+
 }

@@ -11,5 +11,9 @@ import java.util.List;
 public interface EngineInventoryService {
     List<Engine> getAvailableEngines();
 
+
     String addNewEngine(Engine engine);
+
+    Engine findengineByID(int id);
+
 }
