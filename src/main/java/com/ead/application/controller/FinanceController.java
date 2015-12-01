@@ -22,30 +22,30 @@ public class FinanceController {
     @Autowired
     FinanceTransactionService financeTransactionService;
     //View data
-    @RequestMapping("/finance/financeInBox")
+    @RequestMapping("/financeInBox")
     public String listInBoxTransaction(Model model){
         model.addAttribute("transactions", financeTransactionService.getFinancialTransactions());
         return "finance/financeInBox";
     }
-    @RequestMapping("/finance/financeOutBox")
+    @RequestMapping("/financeOutBox")
     public String listOutBoxTransaction(Model model){
 
         model.addAttribute("outboxes", financeTransactionService.getOutBoxTransactions());
         return "finance/financeOutBox";
     }
-    @RequestMapping("/finance/financeInFlow")
+    @RequestMapping("/financeInFlow")
     public String listInFlowTransaction(Model model){
         model.addAttribute("inflows", financeTransactionService.getInFlowTransactions());
         return "finance/financeInFlow";
     }
-    @RequestMapping("/finance/financeOutFlow")
+    @RequestMapping("/financeOutFlow")
     public String listOutFlowTransaction(Model model){
         model.addAttribute("outflows", financeTransactionService.getOutFlowTransactions());
         return "finance/financeOutFlow";
     }
 
 
-<<<<<<< 29b4b5ff3494308b1aafe14204e7f4061bba4b39
+
     //@ResponseBody
     @RequestMapping("/financeoutflow")
     public String ll(Model model){
@@ -68,29 +68,18 @@ public class FinanceController {
     //@RequestMapping("/acceptfincane") @ResponseBody
     //@ResponseBody
     @RequestMapping(value = "/acceptfincane", method = RequestMethod.POST,produces = MediaType.APPLICATION_JSON_VALUE)
-    public   String dd(@RequestParam("reqnumber") String reqnumber, @RequestParam("reqdepartment") String reqdepartment,  @RequestParam("callfrom") String callfrom){
-           System.out.println(reqnumber);
-        int intreqnember =32;
-        int intcallfrom =8;
-        reqdepartment ="Sales";
-       // int intreqnember= Integer.parseInt(reqnumber);
-       // int intcallfrom= Integer.parseInt(callfrom);
-    System.out.println(intcallfrom + "callfrom");
-=======
+    public   String dd(@RequestParam("reqnumber") String reqnumber, @RequestParam("reqdepartment") String reqdepartment,  @RequestParam("callfrom") String callfrom) {
+        System.out.println(reqnumber);
+        int intreqnember = 32;
+        int intcallfrom = 8;
+        reqdepartment = "Sales";
+        // int intreqnember= Integer.parseInt(reqnumber);
+        // int intcallfrom= Integer.parseInt(callfrom);
+        System.out.println(intcallfrom + "callfrom");
 
-    @RequestMapping(value = "/acceptfincane", method = RequestMethod.GET,produces = MediaType.APPLICATION_JSON_VALUE)
-    public   String dd(@RequestParam("reqnumber") String reqnumber, @RequestParam("reqdepartment") String reqdepartment,@RequestParam("callfrom") String callfrom){
+        financeTransactionService.acceptTransaction(intreqnember, reqdepartment,intcallfrom);
 
-        System.out.println(reqnumber+reqdepartment);
 
-        int intreqnember= Integer.parseInt(reqnumber);
-        int intcallfrom= Integer.parseInt(callfrom);
-
->>>>>>> upto comefrom
-        financeTransactionService.acceptTransaction(intreqnember,reqdepartment,intcallfrom);
-        //String acceptfincane = MediaType.APPLICATION_JSON_VALUE
-//        logger.debug("Entered Controller");
-        //  model.addAttribute("transactions", financeTransactionService.getFinancialTransactions());
     System.out.println("Work Done");
         return "inventory/inventory-home";
 

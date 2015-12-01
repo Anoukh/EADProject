@@ -52,11 +52,9 @@ public class FinanceDAOImpl implements FinanceDAO {
 
         return financeTransactions;
     }
-    public List<FinanceTransaction> getOutBoxTransactions() {
-        List<FinanceTransaction> financeOutBoxTransactions = null;
 
-<<<<<<< 3f0ba25dde801ec5c3dc71dc2f2ef4d7b8c4181d
-<<<<<<< 24f9a9ecb2285cbd3e70c2a552072cfa673ce5e4
+
+
     public void acceptTransactionDb(int reqnumber, String reqdepartment, int callfrom) {
        String sql ="";
         System.out.println(reqnumber+"  "+ reqdepartment+"  " + callfrom);
@@ -70,28 +68,32 @@ public class FinanceDAOImpl implements FinanceDAO {
             sql = "UPDATE outflow SET Status = 1 WHERE Request_No =  "+reqnumber+ "AND Department = "+reqdepartment;
 
         }
-    System.out.println(sql);
-
+        System.out.println(sql);
         JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
         jdbcTemplate.update(sql);
     }
 
     public void rejectTransactionDb(int reqnumber, String reqdepartment, int callfrom) {
-<<<<<<< 29b4b5ff3494308b1aafe14204e7f4061bba4b39
-        String sql ="";
-        System.out.println(reqnumber+"  "+ reqdepartment+"  " + callfrom);
+
+        String sql = "";
+        System.out.println(reqnumber + "  " + reqdepartment + "  " + callfrom);
         System.out.println("DBexecute");
-        if(callfrom == 8){
-            sql = "UPDATE inflow SET Status = '1' WHERE Request_No = '"+reqnumber+ "' AND Department = '"+reqdepartment+"'";
+        if (callfrom == 8) {
+            sql = "UPDATE inflow SET Status = '1' WHERE Request_No = '" + reqnumber + "' AND Department = '" + reqdepartment + "'";
             // sql = "UPDATE inflow SET Status = '1' WHERE Request_No =  '32' AND Department = 'Sales'";
 
+        } else if (callfrom == 9) {
+            sql = "UPDATE outflow SET Status = 1 WHERE Request_No =  " + reqnumber + "AND Department = " + reqdepartment;
         }
-        else if(callfrom == 9){
-            sql = "UPDATE outflow SET Status = 1 WHERE Request_No =  "+reqnumber+ "AND Department = "+reqdepartment;
-=======
-=======
-=======
->>>>>>> new pages for finance inbox and outbox
+        System.out.println(sql);
+
+        JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
+        jdbcTemplate.update(sql);
+    }
+
+
+    public List<FinanceTransaction> getOutBoxTransactions() {
+        List<FinanceTransaction> financeOutBoxTransactions = null;
         String sql = "SELECT * FROM loadoutbox ORDER BY Date ASC";
 
         JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
@@ -115,34 +117,7 @@ public class FinanceDAOImpl implements FinanceDAO {
         return financeOutBoxTransactions;
     }
 
-    public void acceptTransactionDb(int reqnumber, String reqdepartment, int callfrom) {
-        String sql ="";
-        if(callfrom == 8){
-            sql = "UPDATE inflow SET Status = 1 WHERE Request_No = '"+reqnumber+ "'AND Department ='"+reqdepartment+"'";
-        }
-        else if(callfrom == 9){
-            sql = "UPDATE outflow SET Status = 1 WHERE Request_No = '"+reqnumber+ "'AND Department ='"+reqdepartment+"'";
 
-        }
-
-        JdbcTemplate jdbcTemplate = new JdbcTemplate();
-        jdbcTemplate.update(sql);
-
-    }
-    public void rejectTransactionDb(int reqnumber, String reqdepartment, int callfrom) {
-        String sql ="";
-        if(callfrom == 8){
-            sql = "UPDATE inflow SET Status = 2 WHERE Request_No = '"+reqnumber+ "'AND Department ='"+reqdepartment+"'";
-        }
-        else if(callfrom == 9){
-            sql = "UPDATE outflow SET Status = 2 WHERE Request_No =  "+reqnumber+ "AND Department = "+reqdepartment;
-
-        }
-
-        JdbcTemplate jdbcTemplate = new JdbcTemplate();
-        jdbcTemplate.update(sql);
-
-    }
 
     public List<FinanceTransaction> getInFlowTransactions(){
         List<FinanceTransaction> financeInFlowTransactions = null;
@@ -169,17 +144,7 @@ public class FinanceDAOImpl implements FinanceDAO {
 
         return financeInFlowTransactions;
     }
-<<<<<<< 3f0ba25dde801ec5c3dc71dc2f2ef4d7b8c4181d
-    public void rejectTransactionDb(int reqnumber, String reqdepartment) {
->>>>>>> upto comefrom
->>>>>>> upto comefrom
 
-        }
-        System.out.println(sql);
-
-        JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
-        jdbcTemplate.update(sql);
-=======
     public List<FinanceTransaction> getOutFlowTransactions(){
         List<FinanceTransaction> financeOutFlowTransactions = null;
 
@@ -204,7 +169,7 @@ public class FinanceDAOImpl implements FinanceDAO {
         });
 
         return financeOutFlowTransactions;
->>>>>>> new pages for finance inbox and outbox
+
     }
 
 
