@@ -89,13 +89,18 @@
         $.ajax({
             type: "GET",
             url: 'acceptfincane',
-            data:  { reqnumber :  "1" , reqdepartment : "hi", callfrom :"1"  },
+            data:  { reqnumber :  "32" , reqdepartment : "Sales", callfrom :"8"  },
             dataType: 'json',
             success: function(dt)
             {
                 window.alert("Done and Dusted");
 
-            }
+            },
+            error : function(e) {
+                console.log("ERROR: ", e);
+                window.alert("Nothing" +e);
+                window.location('finance/financeHome.jsp');
+            },
         });
         $("#AcceptDeclineModal").modal('hide');
     }

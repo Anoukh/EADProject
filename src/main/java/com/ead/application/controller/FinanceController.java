@@ -32,7 +32,7 @@ public class FinanceController {
         return "finance/financeHome";
     }
 
-    @ResponseBody
+    //@ResponseBody
     @RequestMapping("/financeoutflow")
     public String ll(Model model){
 
@@ -42,20 +42,33 @@ public class FinanceController {
         return "";
     }
 
+    @RequestMapping("/financeAorR")
+    public String lml(Model model){
+
+//        logger.debug("Entered Controller");
+        //  model.addAttribute("transactions", financeTransactionService.getFinancialTransactions());
+
+        return "finance/financeAorR";
+    }
+
     //@RequestMapping("/acceptfincane") @ResponseBody
-    @RequestMapping(value = "/acceptfincane", method = RequestMethod.GET,produces = MediaType.APPLICATION_JSON_VALUE)
+    //@ResponseBody
+    @RequestMapping(value = "/acceptfincane", method = RequestMethod.POST,produces = MediaType.APPLICATION_JSON_VALUE)
     public   String dd(@RequestParam("reqnumber") String reqnumber, @RequestParam("reqdepartment") String reqdepartment,  @RequestParam("callfrom") String callfrom){
            System.out.println(reqnumber);
-
-        int intreqnember= Integer.parseInt(reqnumber);
-        int intcallfrom= Integer.parseInt(callfrom);
-
+        int intreqnember =32;
+        int intcallfrom =8;
+        reqdepartment ="Sales";
+       // int intreqnember= Integer.parseInt(reqnumber);
+       // int intcallfrom= Integer.parseInt(callfrom);
+    System.out.println(intcallfrom + "callfrom");
         financeTransactionService.acceptTransaction(intreqnember,reqdepartment,intcallfrom);
         //String acceptfincane = MediaType.APPLICATION_JSON_VALUE
 //        logger.debug("Entered Controller");
         //  model.addAttribute("transactions", financeTransactionService.getFinancialTransactions());
+    System.out.println("Work Done");
+        return "inventory/inventory-home";
 
-        return "finance/financeHome";
     }
 
 
@@ -65,6 +78,8 @@ public class FinanceController {
 
         int intreqnember= Integer.parseInt(reqnumber);
         int intcallfrom= Integer.parseInt(callfrom);
+
+
 
         financeTransactionService.rejectTransaction(intreqnember, reqdepartment,intcallfrom);
         //String acceptfincane = MediaType.APPLICATION_JSON_VALUE

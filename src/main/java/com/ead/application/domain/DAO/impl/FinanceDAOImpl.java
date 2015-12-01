@@ -21,8 +21,10 @@ import java.util.List;
 
 @Repository
 public class FinanceDAOImpl implements FinanceDAO {
+
     @Autowired
     DataSource dataSource;
+
 
     public List<FinanceTransaction> getPendingTransactions() {
 
@@ -54,21 +56,40 @@ public class FinanceDAOImpl implements FinanceDAO {
 
     public void acceptTransactionDb(int reqnumber, String reqdepartment, int callfrom) {
        String sql ="";
+        System.out.println(reqnumber+"  "+ reqdepartment+"  " + callfrom);
         System.out.println("DBexecute");
         if(callfrom == 8){
-           sql = "UPDATE inflow SET Status = 1 WHERE Request_No =  "+reqnumber+ "AND Department = "+reqdepartment;
+           sql = "UPDATE inflow SET Status = '1' WHERE Request_No = '"+reqnumber+ "' AND Department = '"+reqdepartment+"'";
+           // sql = "UPDATE inflow SET Status = '1' WHERE Request_No =  '32' AND Department = 'Sales'";
+
        }
         else if(callfrom == 9){
             sql = "UPDATE outflow SET Status = 1 WHERE Request_No =  "+reqnumber+ "AND Department = "+reqdepartment;
 
         }
+    System.out.println(sql);
 
-        JdbcTemplate jdbcTemplate = new JdbcTemplate();
+        JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
         jdbcTemplate.update(sql);
     }
 
     public void rejectTransactionDb(int reqnumber, String reqdepartment, int callfrom) {
+        String sql ="";
+        System.out.println(reqnumber+"  "+ reqdepartment+"  " + callfrom);
+        System.out.println("DBexecute");
+        if(callfrom == 8){
+            sql = "UPDATE inflow SET Status = '1' WHERE Request_No = '"+reqnumber+ "' AND Department = '"+reqdepartment+"'";
+            // sql = "UPDATE inflow SET Status = '1' WHERE Request_No =  '32' AND Department = 'Sales'";
 
+        }
+        else if(callfrom == 9){
+            sql = "UPDATE outflow SET Status = 1 WHERE Request_No =  "+reqnumber+ "AND Department = "+reqdepartment;
+
+        }
+        System.out.println(sql);
+
+        JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
+        jdbcTemplate.update(sql);
     }
 
 

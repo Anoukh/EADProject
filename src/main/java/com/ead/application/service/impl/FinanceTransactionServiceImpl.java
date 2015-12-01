@@ -25,7 +25,7 @@ public class FinanceTransactionServiceImpl implements FinanceTransactionService{
     }
 
     public void acceptTransaction(int reqnumber, String reqdepartment, int callfrom) {
-        System.out.println(reqnumber+ "hello2");
+        System.out.println("hello2");
         financeDAO.acceptTransactionDb(reqnumber,reqdepartment,callfrom);
     }
 
