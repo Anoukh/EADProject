@@ -21,6 +21,7 @@ public class EmployeeServiceImpl implements EmployeeService{
     HumanResourceDAO humanResourceDAO;
 
     public List<Employee> getEmployeeList() {
+
         return humanResourceDAO.getEmployeeDetails();
     }
 }

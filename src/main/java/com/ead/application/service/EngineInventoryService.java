@@ -10,6 +10,10 @@ import java.util.List;
  */
 public interface EngineInventoryService {
     List<Engine> getAvailableEngines();
+<<<<<<< f97edebcb76ed2772c206a01d81fb1382a5ab1eb
 
     String addNewEngine(Engine engine);
+=======
+    Engine findengineByID(int id);
+>>>>>>> sales paages
 }

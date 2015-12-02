@@ -1,20 +1,14 @@
 <%--
   Created by IntelliJ IDEA.
-  User: anoukh
-  Date: 11/20/15
-  Time: 10:36 AM
+  User: Anushka Getamanna
+  Date: 11/27/2015
+  Time: 2:45 PM
   To change this template use File | Settings | File Templates.
-  <h3>Click Here for <a href="/inventory">Inventory</a> </h3>
 --%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-
-
-
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-  <title>AZD	Company</title>
+  <title>Register</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <link href="/resources/core/css/sales_css/style.css" rel="stylesheet" type="text/css" media="all" />
@@ -144,7 +138,7 @@
 
             <div class="col1">
               <div class="h_nav">
-                <img src="images/nav_img1.jpg" alt=""/>
+                <img src="/resources/core/images/sales_images/nav_img1.jpg" alt=""/>
               </div>
             </div>
           </div>
@@ -159,154 +153,37 @@
       </li>
 
 
-
-
-
-
     </ul>
     <div class="clear"></div>
   </div>
 </div>
-<div class="index-banner">
-  <div class="wmuSlider example1" style="height: 560px;">
-    <div class="wmuSliderWrapper">
-      <article style="position: relative; width: 100%; opacity: 1;">
-        <div class="banner-wrap">
-          <div class="slider-left">
-            <img src="/resources/core/images/sales_images/banner1.jpg" alt=""/>
-          </div>
-          <div class="slider-right">
-            <h1>AZD</h1>
-            <h2>Company</h2>
-            <p>New Generation Sport Engines</p>
-            <div class="btn"><a href="shop.html">Shop Now</a></div>
-          </div>
-          <div class="clear"></div>
-        </div>
-      </article>
-      <article style="position: absolute; width: 100%; opacity: 0;">
-        <div class="banner-wrap">
-          <div class="slider-left">
-            <img src="/resources/core/images/sales_images/banner2.jpg" alt=""/>
-          </div>
-          <div class="slider-right">
-            <h1>AZD</h1>
-            <h2>Company</h2>
-            <p>New Generation Sport Engines</p>
-            <div class="btn"><a href="shop.html">Shop Now</a></div>
-          </div>
-          <div class="clear"></div>
-        </div>
-      </article>
-      <article style="position: absolute; width: 100%; opacity: 0;">
-        <div class="banner-wrap">
-          <div class="slider-left">
-            <img src="/resources/core/images/sales_images/banner1.jpg" alt=""/>
-          </div>
-          <div class="slider-right">
-            <h1>AZD</h1>
-            <h2>Company</h2>
-            <p>New Generation Sport Engines</p>
-            <div class="btn"><a href="shop.html">Shop Now</a></div>
-          </div>
-          <div class="clear"></div>
-        </div>
-      </article>
-      <article style="position: absolute; width: 100%; opacity: 0;">
-        <div class="banner-wrap">
-          <div class="slider-left">
-            <img src="/resources/core/images/sales_images/banner2.jpg" alt=""/>
-          </div>
-          <div class="slider-right">
-            <h1>AZD</h1>
-            <h2>Company</h2>
-            <p>New Generation Sport Engines</p>
-            <div class="btn"><a href="shop.html">Shop Now</a></div>
-          </div>
-          <div class="clear"></div>
-        </div>
-      </article>
-      <article style="position: absolute; width: 100%; opacity: 0;">
-        <div class="banner-wrap">
-          <div class="slider-left">
-            <img src="/resources/core/images/sales_images/banner1.jpg" alt=""/>
-          </div>
-          <div class="slider-right">
-            <h1>AZD</h1>
-            <h2>Company</h2>
-            <p>New Generation Sport Engines</p>
-            <div class="btn"><a href="shop.html">Shop Now</a></div>
-          </div>
-          <div class="clear"></div>
-        </div>
-      </article>
-    </div>
-    <a class="wmuSliderPrev">Previous</a><a class="wmuSliderNext">Next</a>
-    <ul class="wmuSliderPagination">
-      <li><a href="#" class="">0</a></li>
-      <li><a href="#" class="">1</a></li>
-      <li><a href="#" class="wmuActive">2</a></li>
-      <li><a href="#">3</a></li>
-      <li><a href="#">4</a></li>
-    </ul>
-    <a class="wmuSliderPrev">Previous</a><a class="wmuSliderNext">Next</a><ul class="wmuSliderPagination"><li><a href="#" class="wmuActive">0</a></li><li><a href="#" class="">1</a></li><li><a href="#" class="">2</a></li><li><a href="#" class="">3</a></li><li><a href="#" class="">4</a></li></ul></div>
-  <script src="/resources/core/js/sales/jquery.wmuSlider.js"></script>
-  <script type="text/javascript" src="/resources/core/js/sales/modernizr.custom.min.js"></script>
-  <script>
-    $('.example1').wmuSlider();
-  </script>
-</div>
-<div class="main">
+<div class="register_account">
   <div class="wrap">
-
-    <div class="content-bottom">
-      <div class="box1">
-
-<c:forEach var="engin" items="${engin}">
-        <div class="col_1_of_3 span_1_of_3"><a href="/product/${engin.engineID}">
-          <div class="view view-fifth">
-            <div class="top_box">
-              <h3 class="m_1">${engin.engine_name}</h3>
-              <p class="m_2">Capacity: <span style="color: black;">${engin.cc}CC</span> </p>
-              <p class="m_2">Fuel Type: <span style="color: black;">${engin.fuel_type}</span>  </p>
-              <p class="m_2">Mounting Type: <span style="color: black;">${engin.mounting_type}</span>  </p>
-              <div class="grid_img">
-                <div class="css3"><img src="${engin.image}" alt=""/></div>
-                <div class="mask">
-                  <div class="info">Quick View</div>
-                </div>
-              </div>
-              <div class="price"> $ ${engin.price}0</div>
-            </div>
-          </div>
-
-          <ul class="list">
-            <li>
-              <img src="/resources/core/images/sales_images/plus.png" alt=""/>
-              <ul class="icon1 sub-icon1 profile_img">
-                <li><a class="active-icon c1" href="#">Add To Car</a>
-                  <ul class="sub-icon1 list">
-                    <li><h3>Number of Cylinder: ${engin.no_of_cylinders} </h3><a href=""></a></li>
-                    <li><p>${engin.engine_name} </p></li>
-                  </ul>
-                </li>
-              </ul>
-            </li>
-          </ul>
-          <div class="clear"></div>
-        </a></div>
- </c:forEach>
-        </div>
-
-
-
+    <h4 class="title">Add New Engine</h4>
+    <form>
+      <div class="col_1_of_2 span_1_of_2">
+        <div><input type="text" value="Engine Name" ></div>
+        <div><input type="text" value="Company Name" ></div>
+        <div><input type="text" value="Mounting Type" ></div>
+        <div><input type="text" value="Capacity" ></div>
       </div>
-      <div class="box1">
+      <div class="col_1_of_2 span_1_of_2">
+        <div><input type="text" value="No of Cylinders" ></div>
+        <div><select id="fuel" name="Fuel_Type" >
+          <option value="null">Fuel Type</option>
+          <option value="AX">PET</option>
+          <option value="AF">DIS</option>
+          <option value="AL">ELEC</option>
 
-
-        <div class="clear"></div>
+        </select></div>
+        <div><input type="text" value="City" ></div>
+        <input type="file" value="Upload Engine Image" >
+        <p class="code">(.jpg .png) MAX 5MB</p>
       </div>
-    </div>
+      <button class="grey">Submit</button>
+
+      <div class="clear"></div>
+    </form>
   </div>
 </div>
 <div class="footer">

@@ -11,6 +11,9 @@ public class Engine {
     private String mounting_type;
     private int cc;
     private int no_of_cylinders;
+    private String image;
+    private Double price;
+    private int no_of_units;
 
 /*      Getters and Setters       */
 
@@ -38,6 +41,17 @@ public class Engine {
 
     public void setNo_of_cylinders(int no_of_cylinders) { this.no_of_cylinders = no_of_cylinders; }
 
+    public String getImage() { return image; }
+
+    public void setImage(String image) { this.image = image; }
+
+    public Double getPrice() { return price; }
+
+    public void setPrice(Double price) { this.price = price; }
+
+    public int getNo_of_units() { return no_of_units; }
+
+    public void setNo_of_units(int no_of_units) { this.no_of_units = no_of_units; }
 
     /*  Constructors    */
 
@@ -45,13 +59,15 @@ public class Engine {
         super();
     }
 
-    public Engine(int engineID, String engine_name, String fuel_type, String mounting_type, int cc, int no_of_cylinders) {
+    public Engine(int engineID, String engine_name, String fuel_type, String mounting_type, int cc, int no_of_cylinders, String image, Double price) {
         this.engineID = engineID;
         this.engine_name = engine_name;
         this.fuel_type = fuel_type;
         this.mounting_type = mounting_type;
         this.cc = cc;
         this.no_of_cylinders = no_of_cylinders;
+        this.image = image;
+        this.price = price;
     }
 
     @Override

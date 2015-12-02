@@ -10,7 +10,6 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 
-
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -72,13 +71,13 @@
 <div class="header-top">
   <div class="wrap">
     <div class="logo">
-      <a href="/"><img src="/resources/core/images/sales_images/logo.png" alt=""/></a>
+      <a href="index.html"><img src="/resources/core/images/sales_images/logo.png" alt=""/></a>
     </div>
     <div class="cssmenu">
       <ul>
 
-        <li><a href="/login">My Account</a></li>
-        <li><a href="/checkout">CheckOut</a></li>
+        <li><a href="login.html">My Account</a></li>
+        <li><a href="checkout.html">CheckOut</a></li>
       </ul>
     </div>
 
@@ -262,21 +261,19 @@
     <div class="content-bottom">
       <div class="box1">
 
-<c:forEach var="engin" items="${engin}">
-        <div class="col_1_of_3 span_1_of_3"><a href="/product/${engin.engineID}">
+
+        <div class="col_1_of_3 span_1_of_3"><a href="/sales">
           <div class="view view-fifth">
             <div class="top_box">
-              <h3 class="m_1">${engin.engine_name}</h3>
-              <p class="m_2">Capacity: <span style="color: black;">${engin.cc}CC</span> </p>
-              <p class="m_2">Fuel Type: <span style="color: black;">${engin.fuel_type}</span>  </p>
-              <p class="m_2">Mounting Type: <span style="color: black;">${engin.mounting_type}</span>  </p>
+              <h3 class="m_1">Murcielago Roadster 2005 6.2L Motor J070</h3>
+              <p class="m_2">Complete Engine</p>
               <div class="grid_img">
-                <div class="css3"><img src="${engin.image}" alt=""/></div>
+                <div class="css3"><img src="/resources/core/images/sales_images/pic.jpg" alt=""/></div>
                 <div class="mask">
                   <div class="info">Quick View</div>
                 </div>
               </div>
-              <div class="price"> $ ${engin.price}0</div>
+              <div class="price">$40,000.34</div>
             </div>
           </div>
 
@@ -286,8 +283,8 @@
               <ul class="icon1 sub-icon1 profile_img">
                 <li><a class="active-icon c1" href="#">Add To Car</a>
                   <ul class="sub-icon1 list">
-                    <li><h3>Number of Cylinder: ${engin.no_of_cylinders} </h3><a href=""></a></li>
-                    <li><p>${engin.engine_name} </p></li>
+                    <li><h3>sed diam nonummy</h3><a href=""></a></li>
+                    <li><p>Lorem ipsum dolor sit amet, consectetuer  <a href="">adipiscing elit, sed diam</a></p></li>
                   </ul>
                 </li>
               </ul>
@@ -295,15 +292,162 @@
           </ul>
           <div class="clear"></div>
         </a></div>
- </c:forEach>
-        </div>
 
 
+        <div class="col_1_of_3 span_1_of_3"><a href="/sales/single_product.jsp">
+          <div class="view view-fifth">
+            <div class="top_box">
+              <h3 class="m_1">Corvette C6 Z06 LS7 Motor, V8 Engine</h3>
+              <p class="m_2">Complete Engine</p>
+              <div class="grid_img">
+                <div class="css3"><img src="/resources/core/images/sales_images/pic1.jpg" alt=""/></div>
+                <div class="mask">
+                  <div class="info">Quick View</div>
+                </div>
+              </div>
+              <div class="price">$6,334.18</div>
+            </div>
+          </div>
+
+          <ul class="list">
+            <li>
+              <img src="/resources/core/images/sales_images/plus.png" alt=""/>
+              <ul class="icon1 sub-icon1 profile_img">
+                <li><a class="active-icon c1" href="#">Add To Car</a>
+                  <ul class="sub-icon1 list">
+                    <li><h3>sed diam nonummy</h3><a href=""></a></li>
+                    <li><p>Lorem ipsum dolor sit amet, consectetuer  <a href="">adipiscing elit, sed diam</a></p></li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <div class="clear"></div>
+        </a></div>
+        <div class="col_1_of_3 span_1_of_3"><a href="/sales/single_product.jsp">
+          <div class="view view-fifth">
+            <div class="top_box">
+              <h3 class="m_1">VENTURE TESTED 3.4L ENGINE 164K</h3>
+              <p class="m_2">Complete Engine</p>
+              <div class="grid_img">
+                <div class="css3"><img src="/resources/core/images/sales_images/pic2.jpg" alt=""/></div>
+                <div class="mask">
+                  <div class="info">Quick View</div>
+                </div>
+              </div>
+              <div class="price">$15,400.18</div>
+            </div>
+          </div>
+
+          <ul class="list">
+            <li>
+              <img src="/resources/core/images/sales_images/plus.png" alt=""/>
+              <ul class="icon1 sub-icon1 profile_img">
+                <li><a class="active-icon c1" href="#">Add To Car</a>
+                  <ul class="sub-icon1 list">
+                    <li><h3>sed diam nonummy</h3><a href=""></a></li>
+                    <li><p>Lorem ipsum dolor sit amet, consectetuer  <a href="">adipiscing elit, sed diam</a></p></li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <div class="clear"></div>
+        </a></div>
+        <div class="clear"></div>
 
       </div>
       <div class="box1">
+        <div class="col_1_of_3 span_1_of_3"><a href="/sales/single_product.jsp">
+          <div class="view view-fifth">
+            <div class="top_box">
+              <h3 class="m_1">OEM 2009-2015 NISSAN ROGUE 2.5L 4 CYLINDER ENGINE </h3>
+              <p class="m_2">Complete Engine</p>
+              <div class="grid_img">
+                <div class="css3"><img src="/resources/core/images/sales_images/pic3.jpg" alt=""/></div>
+                <div class="mask">
+                  <div class="info">Quick View</div>
+                </div>
+              </div>
+              <div class="price">$8,433.18</div>
+            </div>
+          </div>
 
+          <ul class="list">
+            <li>
+              <img src="/resources/core/images/sales_images/plus.png" alt=""/>
+              <ul class="icon1 sub-icon1 profile_img">
+                <li><a class="active-icon c1" href="#">Add To Car</a>
+                  <ul class="sub-icon1 list">
+                    <li><h3>sed diam nonummy</h3><a href=""></a></li>
+                    <li><p>Lorem ipsum dolor sit amet, consectetuer  <a href="">adipiscing elit, sed diam</a></p></li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <div class="clear"></div>
+        </a></div>
+        <div class="col_1_of_3 span_1_of_3"><a href="/sales/single_product.jsp">
+          <div class="view view-fifth">
+            <div class="top_box">
+              <h3 class="m_1">S2000 AP1 F20C Complete Engine Loom ECU 6 Speed Manual </h3>
+              <p class="m_2">Complete Engine</p>
+              <div class="grid_img">
+                <div class="css3"><img src="/resources/core/images/sales_images/pic4.jpg" alt=""/></div>
+                <div class="mask">
+                  <div class="info">Quick View</div>
+                </div>
+              </div>
+              <div class="price">$38,424.00</div>
+            </div>
+          </div>
 
+          <ul class="list">
+            <li>
+              <img src="/resources/core/images/sales_images/plus.png" alt=""/>
+              <ul class="icon1 sub-icon1 profile_img">
+                <li><a class="active-icon c1" href="#">Add To Car</a>
+                  <ul class="sub-icon1 list">
+                    <li><h3>sed diam nonummy</h3><a href=""></a></li>
+                    <li><p>Lorem ipsum dolor sit amet, consectetuer  <a href="">adipiscing elit, sed diam</a></p></li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <div class="clear"></div>
+        </a></div>
+        <div class="col_1_of_3 span_1_of_3"><a href="single_product.jsp">
+          <div class="view view-fifth">
+            <div class="top_box">
+              <h3 class="m_1">CHEVY IMAPALA TESTED 3800 ENGINE 120K</h3>
+              <p class="m_2">Complete Engine</p>
+              <div class="grid_img">
+                <div class="css3"><img src="/resources/core/images/sales_images/pic5.jpg" alt=""/></div>
+                <div class="mask">
+                  <div class="info">Quick View</div>
+                </div>
+              </div>
+              <div class="price">$28,424.18</div>
+            </div>
+          </div>
+
+          <ul class="list">
+            <li>
+              <img src="/resources/core/images/sales_images/plus.png" alt=""/>
+              <ul class="icon1 sub-icon1 profile_img">
+                <li><a class="active-icon c1" href="#">Add To Car</a>
+                  <ul class="sub-icon1 list">
+                    <li><h3>sed diam nonummy</h3><a href=""></a></li>
+                    <li><p>Lorem ipsum dolor sit amet, consectetuer  <a href="">adipiscing elit, sed diam</a></p></li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <div class="clear"></div>
+        </a></div>
         <div class="clear"></div>
       </div>
     </div>

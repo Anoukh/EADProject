@@ -1,20 +1,18 @@
 <%--
   Created by IntelliJ IDEA.
-  User: anoukh
-  Date: 11/20/15
-  Time: 10:36 AM
+  User: Anushka Getamanna
+  Date: 11/26/2015
+  Time: 11:15 PM
   To change this template use File | Settings | File Templates.
-  <h3>Click Here for <a href="/inventory">Inventory</a> </h3>
 --%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 
-
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-  <title>AZD	Company</title>
+  <title>Product</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <link href="/resources/core/css/sales_css/style.css" rel="stylesheet" type="text/css" media="all" />
@@ -56,6 +54,38 @@
   <script type="text/javascript" src="/resources/core/js/sales/megamenu.js"></script>
   <script>$(document).ready(function(){$(".megamenu").megamenu();});</script>
   <!-- end menu -->
+  <script type="text/javascript" src="/resources/core/js/sales/jquery.jscrollpane.min.js"></script>
+  <script type="text/javascript" id="sourcecode">
+    $(function()
+    {
+      $('.scroll-pane').jScrollPane();
+    });
+  </script>
+  <!----details-product-slider--->
+  <!-- Include the Etalage files -->
+  <link rel="stylesheet" href="/resources/core/css/sales_css/etalage.css">
+  <script src="/resources/core/js/sales/jquery.etalage.min.js"></script>
+  <!-- Include the Etalage files -->
+  <script>
+    jQuery(document).ready(function($){
+
+      $('#etalage').etalage({
+        thumb_image_width: 300,
+        thumb_image_height: 250,
+
+        show_hint: true,
+        click_callback: function(image_anchor, instance_id){
+          alert('Callback example:\nYou clicked on an image with the anchor: "'+image_anchor+'"\n(in Etalage instance: "'+instance_id+'")');
+        }
+      });
+      // This is for the dropdown list example:
+      $('.dropdownlist').change(function(){
+        etalage_show( $(this).find('option:selected').attr('class') );
+      });
+
+    });
+  </script>
+  <!----//details-product-slider--->
   <!-- top scrolling -->
   <script type="text/javascript" src="/resources/core/js/sales/move-top.js"></script>
   <script type="text/javascript" src="/resources/core/js/sales/easing.js"></script>
@@ -167,146 +197,141 @@
     <div class="clear"></div>
   </div>
 </div>
-<div class="index-banner">
-  <div class="wmuSlider example1" style="height: 560px;">
-    <div class="wmuSliderWrapper">
-      <article style="position: relative; width: 100%; opacity: 1;">
-        <div class="banner-wrap">
-          <div class="slider-left">
-            <img src="/resources/core/images/sales_images/banner1.jpg" alt=""/>
-          </div>
-          <div class="slider-right">
-            <h1>AZD</h1>
-            <h2>Company</h2>
-            <p>New Generation Sport Engines</p>
-            <div class="btn"><a href="shop.html">Shop Now</a></div>
-          </div>
-          <div class="clear"></div>
-        </div>
-      </article>
-      <article style="position: absolute; width: 100%; opacity: 0;">
-        <div class="banner-wrap">
-          <div class="slider-left">
-            <img src="/resources/core/images/sales_images/banner2.jpg" alt=""/>
-          </div>
-          <div class="slider-right">
-            <h1>AZD</h1>
-            <h2>Company</h2>
-            <p>New Generation Sport Engines</p>
-            <div class="btn"><a href="shop.html">Shop Now</a></div>
-          </div>
-          <div class="clear"></div>
-        </div>
-      </article>
-      <article style="position: absolute; width: 100%; opacity: 0;">
-        <div class="banner-wrap">
-          <div class="slider-left">
-            <img src="/resources/core/images/sales_images/banner1.jpg" alt=""/>
-          </div>
-          <div class="slider-right">
-            <h1>AZD</h1>
-            <h2>Company</h2>
-            <p>New Generation Sport Engines</p>
-            <div class="btn"><a href="shop.html">Shop Now</a></div>
-          </div>
-          <div class="clear"></div>
-        </div>
-      </article>
-      <article style="position: absolute; width: 100%; opacity: 0;">
-        <div class="banner-wrap">
-          <div class="slider-left">
-            <img src="/resources/core/images/sales_images/banner2.jpg" alt=""/>
-          </div>
-          <div class="slider-right">
-            <h1>AZD</h1>
-            <h2>Company</h2>
-            <p>New Generation Sport Engines</p>
-            <div class="btn"><a href="shop.html">Shop Now</a></div>
-          </div>
-          <div class="clear"></div>
-        </div>
-      </article>
-      <article style="position: absolute; width: 100%; opacity: 0;">
-        <div class="banner-wrap">
-          <div class="slider-left">
-            <img src="/resources/core/images/sales_images/banner1.jpg" alt=""/>
-          </div>
-          <div class="slider-right">
-            <h1>AZD</h1>
-            <h2>Company</h2>
-            <p>New Generation Sport Engines</p>
-            <div class="btn"><a href="shop.html">Shop Now</a></div>
-          </div>
-          <div class="clear"></div>
-        </div>
-      </article>
-    </div>
-    <a class="wmuSliderPrev">Previous</a><a class="wmuSliderNext">Next</a>
-    <ul class="wmuSliderPagination">
-      <li><a href="#" class="">0</a></li>
-      <li><a href="#" class="">1</a></li>
-      <li><a href="#" class="wmuActive">2</a></li>
-      <li><a href="#">3</a></li>
-      <li><a href="#">4</a></li>
-    </ul>
-    <a class="wmuSliderPrev">Previous</a><a class="wmuSliderNext">Next</a><ul class="wmuSliderPagination"><li><a href="#" class="wmuActive">0</a></li><li><a href="#" class="">1</a></li><li><a href="#" class="">2</a></li><li><a href="#" class="">3</a></li><li><a href="#" class="">4</a></li></ul></div>
-  <script src="/resources/core/js/sales/jquery.wmuSlider.js"></script>
-  <script type="text/javascript" src="/resources/core/js/sales/modernizr.custom.min.js"></script>
-  <script>
-    $('.example1').wmuSlider();
-  </script>
-</div>
-<div class="main">
+<div class="single">
   <div class="wrap">
+    <div class="rsidebar span_1_of_left">
+      <section  class="sky-form">
 
-    <div class="content-bottom">
-      <div class="box1">
+      </section>
+      <section  class="sky-form">
 
-<c:forEach var="engin" items="${engin}">
-        <div class="col_1_of_3 span_1_of_3"><a href="/product/${engin.engineID}">
-          <div class="view view-fifth">
-            <div class="top_box">
-              <h3 class="m_1">${engin.engine_name}</h3>
-              <p class="m_2">Capacity: <span style="color: black;">${engin.cc}CC</span> </p>
-              <p class="m_2">Fuel Type: <span style="color: black;">${engin.fuel_type}</span>  </p>
-              <p class="m_2">Mounting Type: <span style="color: black;">${engin.mounting_type}</span>  </p>
-              <div class="grid_img">
-                <div class="css3"><img src="${engin.image}" alt=""/></div>
-                <div class="mask">
-                  <div class="info">Quick View</div>
-                </div>
-              </div>
-              <div class="price"> $ ${engin.price}0</div>
-            </div>
-          </div>
+        <div class="row row1 scroll-pane">
 
-          <ul class="list">
-            <li>
-              <img src="/resources/core/images/sales_images/plus.png" alt=""/>
-              <ul class="icon1 sub-icon1 profile_img">
-                <li><a class="active-icon c1" href="#">Add To Car</a>
-                  <ul class="sub-icon1 list">
-                    <li><h3>Number of Cylinder: ${engin.no_of_cylinders} </h3><a href=""></a></li>
-                    <li><p>${engin.engine_name} </p></li>
-                  </ul>
-                </li>
-              </ul>
-            </li>
-          </ul>
-          <div class="clear"></div>
-        </a></div>
- </c:forEach>
+        </div>
+      </section>
+      <section  class="sky-form">
+
+        <div class="row row1 scroll-pane">
+
+        </div>
+      </section>
+      <section  class="sky-form">
+
+        <div class="row row1 scroll-pane">
+
+        </div>
+      </section>
+      <section  class="sky-form">
+
+        <div class="row row1 scroll-pane">
+
+        </div>
+      </section>
+    </div>
+    <div class="cont span_2_of_3">
+      <div class="labout span_1_of_a1">
+        <!-- start product_slider -->
+        <ul id="etalage">
+          <li>
+            <a href="optionallink.html">
+              <img class="etalage_thumb_image" src="${oneEngin.image}" />
+              <img class="etalage_source_image" src="${oneEngin.image}" />
+            </a>
+          </li>
+
+        </ul>
+
+
+        <!-- end product_slider -->
+      </div>
+      <div class="cont1 span_2_of_a1">
+        <h3 class="m_3">${oneEngin.engine_name}</h3>
+
+        <div class="price_single">
+          <span class="actual"> $ ${oneEngin.price}0</span>
+
         </div>
 
-
-
+        <div class="btn_form">
+          <form>
+            <input type="submit" value="buy now" title="">
+          </form>
+        </div>
+        <ul class="add-to-links">
+          <li><img src="/resources/core/images/sales_images/wish.png" alt=""/><a href="#">Add to wishlist</a></li>
+        </ul>
+        <p class="m_2">Capacity: <span style="color: black;">${oneEngin.cc}CC</span> </p>
+        <p class="m_2">Fuel Type: <span style="color: black;">${oneEngin.fuel_type}</span>  </p>
+        <p class="m_2">Mounting Type: <span style="color: black;">${oneEngin.mounting_type}</span>  </p>
+        <p class="m_2">No of Items: <span style="color: black;">${oneEngin.no_of_units}</span>  </p>
       </div>
-      <div class="box1">
+      <div class="clear"></div>
 
 
-        <div class="clear"></div>
-      </div>
+
+      <script type="text/javascript">
+        $(window).load(function() {
+          $("#flexiselDemo1").flexisel();
+          $("#flexiselDemo2").flexisel({
+            enableResponsiveBreakpoints: true,
+            responsiveBreakpoints: {
+              portrait: {
+                changePoint:480,
+                visibleItems: 1
+              },
+              landscape: {
+                changePoint:640,
+                visibleItems: 2
+              },
+              tablet: {
+                changePoint:768,
+                visibleItems: 3
+              }
+            }
+          });
+
+          $("#flexiselDemo3").flexisel({
+            visibleItems: 5,
+            animationSpeed: 1000,
+            autoPlay: true,
+            autoPlaySpeed: 3000,
+            pauseOnHover: true,
+            enableResponsiveBreakpoints: true,
+            responsiveBreakpoints: {
+              portrait: {
+                changePoint:480,
+                visibleItems: 1
+              },
+              landscape: {
+                changePoint:640,
+                visibleItems: 2
+              },
+              tablet: {
+                changePoint:768,
+                visibleItems: 3
+              }
+            }
+          });
+
+        });
+      </script>
+      <script type="text/javascript" src="/resources/core/js/sales/jquery.flexisel.js"></script>
+      <div class="toogle">
+        <h3 class="m_3">TERMS & CONDITIONS</h3>
+        <p class="m_text">Item is sold as being in good, working condition. Some items may not be legal for on road use,
+          please check the legalities of performance modifications with your local transport authority.
+
+          If there is a problem with your item or it does not match the description please email first to resolve before
+          leaving feedback. If the part is faulty we will attempt to replace with an equivalent part.
+
+          Refund Policy: We do not refund simply because you change your mind about an item or have bought the incorrect item.
+          All items are inspected before being sent. If the item is not as stated in the description we will refund the purchase price.
+          All shipping costs are to be paid by the buyer. We are unable to refund any items that have
+          been fitted or modified in any way and are not in original condition as sent. We do not cover labour costs associated with
+          fitting this part under any circumstances.</div>
+
     </div>
+    <div class="clear"></div>
   </div>
 </div>
 <div class="footer">
