@@ -1,5 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -9,6 +10,12 @@
     <link href="/resources/core/css/vendor/bootstrap.css" rel="stylesheet" type="text/css">
     <link href="/resources/core/css/vendor/simple-sidebar.css" rel="stylesheet">
     <link href="/resources/core/css/inventory-custom.css" rel="stylesheet">
+    <link href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet">
+    <script src="/resources/core/js/vendor/jquery-2.1.4.min.js" type="text/javascript"> </script>
+    <script src="/resources/core/js/inventory-custom.js" type="text/javascript"> </script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js" type="text/javascript"> </script>
+
+
 </head>
 <body>
 <!-- Sidebar -->
@@ -105,11 +112,15 @@
                 <div class="row">
                     <div class="col-lg-12" >
                         <h1>Add New Engine</h1>
-
+<c:choose>
+    <c:when test="${msg.equals('success')}"><script>toastr.success("New Engine Successfully Added")</script></c:when>
+    <c:when test="${msg.equals('error')}"><script>toastr.error("Failed to Add Engine")</script></c:when>
+</c:choose>
                         <form name="AddNewEngine" id="addNewEngineForm" action="/postEngine" method="POST">
                             <div class="form-group col-lg-4">
                                 <label for="engineName">Engine Name</label>
                                 <input class="form-control" type="text" name="engine_name" id="engineName" placeholder="Engine Name">
+                                <span id="username.errors" class="error">username is required!</span>
                             </div>
                             <div class="form-group col-lg-4">
                                 <label for="numberOfCylinders">Number of Cylinders</label>
@@ -155,7 +166,5 @@
 
     </div>
 </div>
-<script src="/resources/core/js/vendor/jquery-2.1.4.min.js" type="text/javascript"> </script>
-<script src="/resources/core/js/inventory-custom.js" type="text/javascript"> </script>
 </body>
 </html>

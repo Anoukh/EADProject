@@ -71,10 +71,10 @@ public class EngineDAOImpl implements EngineDAO {
                     engine.getCc(), engine.getNo_of_cylinders(), engine.getPrice());
         }catch (Exception e) {
             System.out.println(e);
-            return "Error";
+            return "error";
         }
 
-        return "Success";
+        return "success";
 
     }
 

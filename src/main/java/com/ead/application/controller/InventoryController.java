@@ -5,9 +5,12 @@ import com.ead.application.service.EngineInventoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 /**
  * Created by anoukh on 11/20/15.
@@ -36,8 +39,7 @@ public class InventoryController {
         System.out.println(engine.getEngine_name());
         String temp = engineInventoryService.addNewEngine(engine);
 
-        System.out.println(temp);
-
+        model.addAttribute("msg", temp);
         return "inventory/inventory-home";
 
     }
