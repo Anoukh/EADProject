@@ -30,13 +30,6 @@ public class EngineDAOImpl implements EngineDAO {
     public List<Engine> listEngine() {
 //        logger.debug("Entered DAO");
         List<Engine> engines = null;
-
-<<<<<<< f97edebcb76ed2772c206a01d81fb1382a5ab1eb
-=======
-        String sql = "SELECT tbl_engine.engine_id, tbl_engine.engine_name, tbl_engine.fuel_type, tbl_engine.mounting_type, tbl_engine.cc,tbl_engine.no_of_cylinders, tbl_engine.image,tbl_engine.price, tbl_stock.no_of_units FROM tbl_engine INNER JOIN tbl_stock ON tbl_stock.engine_id=tbl_engine.engine_id";
-
-
->>>>>>> sales paages
         JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
 
         String sql = "SELECT * FROM tbl_engine";
@@ -55,7 +48,7 @@ public class EngineDAOImpl implements EngineDAO {
                 engine.setNo_of_cylinders(resultSet.getInt("no_of_cylinders"));
                 engine.setPrice(resultSet.getDouble("price"));
                 engine.setImage(resultSet.getString("image"));
-                engine.setNo_of_units(resultSet.getInt("no_of_units"));
+
 
 //                logger.debug("End of Query");
                 return engine;
@@ -66,7 +59,6 @@ public class EngineDAOImpl implements EngineDAO {
         return engines;
     }
 
-<<<<<<< f97edebcb76ed2772c206a01d81fb1382a5ab1eb
     public String addNewEngine(Engine engine) {
 
         JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
@@ -85,8 +77,8 @@ public class EngineDAOImpl implements EngineDAO {
         return "Success";
 
     }
-}
-=======
+
+
     public Engine findengineByID(int id) {
         Engine engine = null;
         String sql = "SELECT tbl_engine.engine_id, tbl_engine.engine_name, tbl_engine.fuel_type, tbl_engine.mounting_type, tbl_engine.cc,tbl_engine.no_of_cylinders, tbl_engine.image,tbl_engine.price, tbl_stock.no_of_units FROM tbl_engine INNER JOIN tbl_stock ON tbl_stock.engine_id=tbl_engine.engine_id WHERE tbl_engine.engine_id=?";
@@ -125,4 +117,3 @@ public class EngineDAOImpl implements EngineDAO {
             return engine;
         }
     }
->>>>>>> sales paages

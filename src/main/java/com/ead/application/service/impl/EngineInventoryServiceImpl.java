@@ -21,12 +21,12 @@ public class EngineInventoryServiceImpl implements EngineInventoryService{
         return engineDAO.listEngine();
     }
 
-<<<<<<< f97edebcb76ed2772c206a01d81fb1382a5ab1eb
+
     public String addNewEngine(Engine engine) { return engineDAO.addNewEngine(engine); }
-=======
+
     public Engine findengineByID(int id) {
 
         return engineDAO.findengineByID(id);
     }
->>>>>>> sales paages
+
 }
