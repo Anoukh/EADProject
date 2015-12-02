@@ -7,7 +7,7 @@
 
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<title>Cash In Flow</title>
+	<title>Cash InBox</title>
 
 	<link href="/resources/core/css/vendor/bootstrap.css" rel="stylesheet" type="text/css">
 	<link href="/resources/core/css/vendor/simple-sidebar.css" rel="stylesheet">
@@ -57,11 +57,10 @@
 	<script src="/resources/core/js/finance-custom.js"></script>
 </head>
 <body onload="financehomeonload()">
-
-
 <div style="height:20px  ;background-color:#000000"></div>
 <div id="wrapper">
 
+	<!-- Sidebar -->
 	<!-- Sidebar -->
 	<div id="sidebar-wrapper">
 		<ul class="sidebar-nav" >
@@ -120,178 +119,17 @@
 									<td>${transaction.comeFrom}</td>
 								</tr>
 								</c:forEach>
-
-
 							</tbody>
 						</table>
-
-
 					</div>
 				</div>
 			</div>
 		</div>
-
-		<div id="outboxdiv">
-			<div class="container-fluid">
-				<div class="row">
-					<div class="col-lg-12" >
-						<h1 >Finance Outbox</h1>
-						<p onclick="toggle();"><a class="btn btn-default" >Toggle Menu</a></p>
-						<table width="100%" align="center" border="2pt" class="table">
-							<thead class="">
-							<tr>
-								<th>Requested Date</th>
-								<th>Accepted Date</th>
-								<th>Department</th>
-								<th>Description</th>
-								<th>Amount</th>
-							</tr>
-							</thead>
-							<tbody class="">
-
-							</tbody>
-						</table>
-
-
-
-
-					</div>
-				</div>
-			</div>
-		</div>
-
-
-		<div id="cashinflowdiv">
-			<div class="container-fluid">
-				<div class="row">
-					<div class="col-lg-12" >
-						<h1 >Cash Inflow</h1>
-
-						<p onclick="toggle();"><a class="btn btn-default" >Toggle Menu</a></p>
-
-						<table width="100%" align="center" border="2pt" class="table">
-							<thead>
-							<tr>
-								<th>Date</th>
-								<th>Invoice No.</th>
-								<th>Description</th>
-								<th>Amount</th>
-							</tr>
-							</thead>
-							<tbody class="">
-
-							</tbody>
-						</table>
-
-
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<div id="cashoutflowdiv">
-
-			<form action="financeoutflow" method="post">
-
-				<button type="submit" value="enter"></button>
-				</form>
-
-			<div class="container-fluid">
-				<div class="row">
-					<div class="col-lg-12" >
-						<h1>Cash Outflow</h1>
-
-						<p onclick="toggle();"><a class="btn btn-default" >Toggle Menu</a></p>
-
-						<table width="100%" align="center" border="2pt" class="table" >
-							<thead>
-							<tr>
-								<th>Date</th>
-								<th>Voucher No.</th>
-								<th>Description</th>
-								<th>Amount</th>
-							</tr>
-							</thead>
-							<tbody class="">
-
-							</tbody>
-						</table>
-
-
-					</div>
-				</div>
-			</div>
-		</div>
-
-
 	</div>
 	<!-- /#page-content-wrapper -->
 
 </div>
 <div id="popDiv"  role="dialog">
-
-	<!--
-	<div  class="modal-dialog">
-		<font size="+2">
-
-			<div class="row-fluid">
-				<section class="span12">
-					<aside class ="span3"><input type="text" id=""  name="" placeholder ="Request No." readonly="yes"/></aside>
-					<article class="span6"> </article>
-					<article class ="span3"><input type="text" id="" name="" style="width:100%" placeholder ="Date" readonly="yes"/></article>
-
-				</section>
-			</div>
-
-
-			<div style="height:10px"></div>
-		</font>
-		<font size="+1">
-			<div class="row-fluid">
-				<section class="span12">
-					<aside class ="span1"></aside>
-					<article class="span2"> From  </article>
-					<article class ="span6"><input type="text" id="" name="" class="roundcorner" placeholder ="Department Name" readonly="yes"/></article>
-					<article class ="span3"></article>
-
-				</section>
-			</div>
-
-			<div style="height:10px"></div>
-
-			<div class="row-fluid">
-				<section class="span12">
-					<aside class ="span1"></aside>
-					<article class="span2"> Description  </article>
-					<article class ="span6"><textarea class="roundcorner" type="text" id="" name="" placeholder ="Description" style="width:100%" readonly="yes"> </textarea></article>
-					<article class ="span3"></article>
-
-				</section>
-			</div>
-
-
-			<div style="height:10px"></div>
-		</font>
-		<font size="+2">
-
-
-			<div class="row-fluid">
-				<section class="span12">
-					<aside class ="span1"></aside>
-					<article class="span4"></article>
-					<aside class ="span2"><button class="span12 btn btn-success " onClick="hide('popDiv');">Accept </button></aside>
-					<article class="span2"><button class="span12 btn btn-danger "  onClick="hide('popDiv');">Decline </button></article>
-					<article class ="span3"></article>
-
-				</section>
-			</div>
-
-
-		</font>
-	</div>
-
-	-->
-
 	<div class="modal fade" id="AcceptDeclineModal" role="dialog">
 		<div class="modal-dialog">
 
@@ -355,27 +193,18 @@
 
 							</section>
 						</div>
-
-
 					</font>
-
-
 				</div>
 				<div class="modal-footer">
 				<!--	<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>  -->
 				</div>
 			</div>
-
 		</div>
 	</div>
 
 
 </div>
 <script>
-
-
 </script>
-
-
 </body>
 </html>

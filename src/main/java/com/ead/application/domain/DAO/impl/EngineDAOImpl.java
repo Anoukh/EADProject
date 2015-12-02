@@ -71,12 +71,12 @@ public class EngineDAOImpl implements EngineDAO {
 
         JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
 
-        String sql = "INSERT INTO tbl_engine (engine_name, fuel_type, mounting_type, cc, no_of_cylinders)"
-                + " VALUES (?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO tbl_engine (engine_name, fuel_type, mounting_type, cc, no_of_cylinders, price)"
+                + " VALUES (?, ?, ?, ?, ?, ?)";
 
         try {
             jdbcTemplate.update(sql, engine.getEngine_name(), engine.getFuel_type(), engine.getMounting_type(),
-                    engine.getCc(), engine.getNo_of_cylinders());
+                    engine.getCc(), engine.getNo_of_cylinders(), engine.getPrice());
         }catch (Exception e) {
             System.out.println(e);
             return "Error";

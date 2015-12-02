@@ -135,6 +135,10 @@
                                     <option>Longitudinal</option>
                                 </select>
                             </div>
+                            <div class="form-group col-lg-4">
+                                <label for="numberOfCylinders">Price</label>
+                                <input class="form-control" type="text" name="price" id="price" placeholder="Price">
+                            </div>
                             <div id="submitNewEngineButton" class="form-group">
                                 <div class="col-sm-10">
                                 <button type="submit" class="btn btn-primary">Confirm Engine Details</button>

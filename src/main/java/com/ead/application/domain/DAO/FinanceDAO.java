@@ -9,6 +9,10 @@ import java.util.List;
  */
 public interface FinanceDAO {
     List<FinanceTransaction> getPendingTransactions();
+    List<FinanceTransaction> getOutBoxTransactions();
+    List<FinanceTransaction> getInFlowTransactions();
+    List<FinanceTransaction> getOutFlowTransactions();
+
 
 
     void acceptTransactionDb(int reqnumber, String reqdepartment, int callfrom);
