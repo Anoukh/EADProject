@@ -1,3 +1,4 @@
+<%@ taglib prefix="e" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: anoukh
@@ -68,6 +69,7 @@
     });
   </script>
 </head>
+<<<<<<< HEAD
 <body>
 <div class="header-top">
   <div class="wrap">
@@ -335,5 +337,36 @@
   });
 </script>
 <a href="#" id="toTop" style="display: block;"><span id="toTopHover" style="opacity: 1;"></span></a>
+=======
+
+  <h2>Login</h2>
+
+<form>
+
+<table>
+  <tr>
+    <td>
+
+      User Name
+
+      <input type="text" value="" id="User">
+    </td>
+  </tr>
+  <tr>
+    <td>
+  Password
+
+      <input type="password" value="" id="Password">
+    </td>
+  </tr>
+<tr>
+
+  <td>
+    <input type="submit" value="Login">
+  </td>
+</tr>
+</table>
+</form>
+>>>>>>> 0f3a42f6eb65ee0327eff4ff7e0bacccc37d0c9d
 </body>
 </html>

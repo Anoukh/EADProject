@@ -5,6 +5,33 @@
    http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
 
     <display-name>Enterprise Application</display-name>
+<<<<<<< HEAD
+<!--login-->
+    <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
+
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>
+            /WEB-INF/spring-security.xml,
+            /WEB-INF/data-source-cfg.xml
+        </param-value>
+    </context-param>
+
+    <!-- Spring Security Filter -->
+    <filter>
+        <filter-name>springSecurityFilterChain</filter-name>
+        <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>springSecurityFilterChain</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+<!---->
+=======
+>>>>>>> 1b9edac67c289d29bdd2e68ab25398d791933d07
     <servlet>
         <servlet-name>MainServlet</servlet-name>
         <servlet-class>
